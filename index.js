@@ -62,9 +62,9 @@ function init() {
 		socket.emit('message', { hello: 'world' });
 	});
 
-	// onWikiData(data => {
-	// 	io.emit('message', data);
-	// });
+	onWikiData(data => {
+		io.emit('message', data);
+	});
 
 	const port = config.get('port');
 
