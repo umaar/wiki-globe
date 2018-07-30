@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "export NODE_ENV=development && node index.js",
-    "start": "export NODE_ENV=production && node index.js",
+    "start-production": "export NODE_ENV=production && node index.js",
+    "start": "export NODE_ENV=development && node index.js",
     "scrape-data": "node scrape-data.js",
     "deploy": "we deploy -p globe"
   },
