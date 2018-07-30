@@ -9,7 +9,7 @@
     "stop-production-process": "pm2 stop wiki-globe-production 2>/dev/null || true && pm2 delete wiki-globe-production  2>/dev/null || true",
     "start": "export NODE_ENV=development && node index.js",
     "scrape-data": "node scrape-data.js",
-    "post-receive": "npm run stop-production-process && git fetch origin master && git reset --hard origin/master && npm i && npm run start-production-process"
+    "post-receive": "echo 'Starting the script' >> ../tmp.txt && npm run stop-production-process && echo 'Updating git' >> ../tmp.txt && git fetch origin master && git reset --hard origin/master && echo 'npm i' >> ../tmp.txt && npm i && echo 'Starting new process' >> ../tmp.txt && npm run start-production-process"
   },
   "keywords": [],
   "author": "",
