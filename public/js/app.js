@@ -57,7 +57,7 @@ function startNetwork() {
         };
 
         console.log('Socket on connection?');
-        var socket = io();
+        var socket = io({ path: '/globe/socket.io'});
         socket.on('connect', () => {
             console.log('Connected to the WebSocket Server');
             StreamConnected += 1;

@@ -8,7 +8,7 @@ const isIp = require('is-ip');
 
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, { path: '/globe/socket.io'});
 
 const ipAPIURL = 'https://ipapi.co/*/json';
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
@@ -55,7 +55,7 @@ function onWikiData(onData) {
 }
 
 function init() {
-	app.use(express.static('public'))
+	app.use('/globe', express.static('public'))
 
 	onWikiData(data => {
 		io.emit('message', data);
