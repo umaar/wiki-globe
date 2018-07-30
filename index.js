@@ -38,7 +38,7 @@ function onMessage(callback) {
 			return;
 		}
 
-		if (!!location || location.error) {
+		if (!location || location.error) {
 			console.log('IP Location Error:', {location});
 			return;
 		}
@@ -49,7 +49,7 @@ function onMessage(callback) {
 			location
 		};
 
-		// console.log(item);
+		console.log(item);
 		callback(item);
 	}
 }
