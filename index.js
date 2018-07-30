@@ -57,6 +57,11 @@ function onWikiData(onData) {
 function init() {
 	app.use('/globe', express.static('public'))
 
+	io.on('connection', function (socket) {
+		console.log('Connection established');
+		socket.emit('message', { hello: 'world' });
+	});
+
 	// onWikiData(data => {
 	// 	io.emit('message', data);
 	// });
