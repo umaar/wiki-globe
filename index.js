@@ -57,9 +57,9 @@ function onWikiData(onData) {
 function init() {
 	app.use('/globe', express.static('public'))
 
-	onWikiData(data => {
-		io.emit('message', data);
-	});
+	// onWikiData(data => {
+	// 	io.emit('message', data);
+	// });
 
 	const port = config.get('port');
 
