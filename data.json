@@ -1,0 +1,2155 @@
+{
+  "entries": [
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938833,
+        "length": {
+          "new": 4921,
+          "old": 5378
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:27+00:00",
+          "id": "90026261-9372-11e8-a522-b083fecefa7f",
+          "request_id": "7a08e4f4-2656-44bf-a88c-4d669d1ed694",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Hari",
+          "partition": 0,
+          "offset": 1034951857
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560795,
+          "old": 852560746
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898087,
+        "title": "Hari",
+        "type": "edit",
+        "user": "129.255.225.111",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "129.255.225.111",
+        "city": "Iowa City",
+        "region": "Iowa",
+        "region_code": "IA",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "52242",
+        "latitude": 41.664,
+        "longitude": -91.5447,
+        "timezone": "America/Chicago",
+        "utc_offset": "-0500",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS3676",
+        "org": "University of Iowa"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": null,
+        "log_action": "hit",
+        "log_action_comment": "129.255.225.111 triggered [[Special:AbuseFilter/172|filter 172]], performing the action \"edit\" on [[Hari]]. Actions taken: Tag ([[Special:AbuseLog/21681485|details]])",
+        "log_id": 0,
+        "log_params": {
+          "action": "edit",
+          "actions": "tag",
+          "filter": 172,
+          "log": 21681485
+        },
+        "log_type": "abusefilter",
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:28+00:00",
+          "id": "8ffe6ac1-9372-11e8-a522-b083fecefa7f",
+          "request_id": "f82c0163-31b5-42ff-ae5b-77071757923d",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Hari",
+          "partition": 0,
+          "offset": 1034951855
+        },
+        "namespace": 0,
+        "parsedcomment": "",
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898088,
+        "title": "Hari",
+        "type": "log",
+        "user": "129.255.225.111",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "129.255.225.111",
+        "city": "Iowa City",
+        "region": "Iowa",
+        "region_code": "IA",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "52242",
+        "latitude": 41.664,
+        "longitude": -91.5447,
+        "timezone": "America/Chicago",
+        "utc_offset": "-0500",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS3676",
+        "org": "University of Iowa"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938895,
+        "length": {
+          "new": 4916,
+          "old": 4921
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:53+00:00",
+          "id": "9f2d3246-9372-11e8-91a4-b083fecf064e",
+          "request_id": "c9cd5858-51fe-456d-a934-c209cc47e292",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Hari",
+          "partition": 0,
+          "offset": 1034952339
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560843,
+          "old": 852560795
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898113,
+        "title": "Hari",
+        "type": "edit",
+        "user": "129.255.225.111",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "129.255.225.111",
+        "city": "Iowa City",
+        "region": "Iowa",
+        "region_code": "IA",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "52242",
+        "latitude": 41.664,
+        "longitude": -91.5447,
+        "timezone": "America/Chicago",
+        "utc_offset": "-0500",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS3676",
+        "org": "University of Iowa"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* School in film */",
+        "id": 1074938899,
+        "length": {
+          "new": 9808,
+          "old": 9792
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:53+00:00",
+          "id": "9f9cda42-9372-11e8-b766-1866da9951f6",
+          "request_id": "394bce7b-ac50-4422-bba2-996e04b30865",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Reseda_High_School",
+          "partition": 0,
+          "offset": 1034952375
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Reseda_High_School#School_in_film\" title=\"Reseda High School\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">School in film</span></span>",
+        "revision": {
+          "new": 852560842,
+          "old": 852560709
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898113,
+        "title": "Reseda High School",
+        "type": "edit",
+        "user": "2600:1702:871:1FC0:F8E8:E251:23EC:CCD2",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "2600:1702:871:1FC0:F8E8:E251:23EC:CCD2",
+        "city": "Southfield",
+        "region": "Michigan",
+        "region_code": "MI",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "48075",
+        "latitude": 42.465,
+        "longitude": -83.2307,
+        "timezone": "America/Detroit",
+        "utc_offset": "-0400",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS7018",
+        "org": "AT&T Services, Inc."
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Estamos melos? */",
+        "id": 189257086,
+        "length": {
+          "new": 29303,
+          "old": 29297
+        },
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:01:55+00:00",
+          "id": "a04701a3-9372-11e8-ba78-1418776134f3",
+          "request_id": "1cef3d9b-ef81-41e4-99e5-9f9201fd3e41",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Partido_Liberal_Colombiano",
+          "partition": 0,
+          "offset": 1034952392
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Partido_Liberal_Colombiano#Estamos_melos?\" title=\"Partido Liberal Colombiano\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Estamos melos?</span></span>",
+        "revision": {
+          "new": 109614011,
+          "old": 109593913
+        },
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898115,
+        "title": "Partido Liberal Colombiano",
+        "type": "edit",
+        "user": "190.90.60.85",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "190.90.60.85",
+        "city": "Medellín",
+        "region": "Antioquia",
+        "region_code": "ANT",
+        "country": "CO",
+        "country_name": "Colombia",
+        "continent_code": "SA",
+        "in_eu": false,
+        "postal": "050001",
+        "latitude": 6.2518,
+        "longitude": -75.5636,
+        "timezone": "America/Bogota",
+        "utc_offset": "-0500",
+        "country_calling_code": "+57",
+        "currency": "COP",
+        "languages": "es-CO",
+        "asn": "AS18678",
+        "org": "INTERNEXA S.A. E.S.P"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* wbsetdescription-set:1|en */ Iranian architect",
+        "id": 753461540,
+        "length": {
+          "new": 5137,
+          "old": 5137
+        },
+        "meta": {
+          "domain": "www.wikidata.org",
+          "dt": "2018-07-29T21:01:58+00:00",
+          "id": "a1aaab5b-9372-11e8-8121-1866da9944e4",
+          "request_id": "04e1a11f-dbaa-4c0b-bae2-8f75ce896391",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://www.wikidata.org/wiki/Q7235811",
+          "partition": 0,
+          "offset": 1034952423
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "‎<span dir=\"auto\"><span class=\"autocomment\">Changed English description: </span></span> Iranian architect",
+        "patrolled": false,
+        "revision": {
+          "new": 717910347,
+          "old": 717910318
+        },
+        "server_name": "www.wikidata.org",
+        "server_script_path": "/w",
+        "server_url": "https://www.wikidata.org",
+        "timestamp": 1532898118,
+        "title": "Q7235811",
+        "type": "edit",
+        "user": "109.78.20.55",
+        "wiki": "wikidatawiki"
+      },
+      "location": {
+        "ip": "109.78.20.55",
+        "city": "Dublin",
+        "region": "Dublin",
+        "region_code": null,
+        "country": "IE",
+        "country_name": "Ireland",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": null,
+        "latitude": 53.349805,
+        "longitude": -6.26031,
+        "timezone": null,
+        "utc_offset": null,
+        "country_calling_code": "+353",
+        "currency": "EUR",
+        "languages": "en-IE,ga-IE",
+        "asn": "AS15502",
+        "org": "Vodafone Ireland Limited"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "[[WP:AES|←]]Replaced content with '13,407,807,929,942,597,099,574,024,998,205,846,127,479,365,820,592,393,377,723,561,443,721,764,030,073,546,976,801,874,298,166,903,427,690,031,858,186,486,05...'",
+        "id": 1074938911,
+        "length": {
+          "new": 206,
+          "old": 2511
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:57+00:00",
+          "id": "a1b0f5a1-9372-11e8-af4d-1866da994faa",
+          "request_id": "d9410867-3367-49e3-969b-981b9158a389",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Wikipedia:Sandbox",
+          "partition": 0,
+          "offset": 1034952424
+        },
+        "minor": false,
+        "namespace": 4,
+        "parsedcomment": "<a href=\"/wiki/Wikipedia:AES\" class=\"mw-redirect\" title=\"Wikipedia:AES\">←</a>Replaced content with &#039;13,407,807,929,942,597,099,574,024,998,205,846,127,479,365,820,592,393,377,723,561,443,721,764,030,073,546,976,801,874,298,166,903,427,690,031,858,186,486,05...&#039;",
+        "revision": {
+          "new": 852560850,
+          "old": 852560824
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898117,
+        "title": "Wikipedia:Sandbox",
+        "type": "edit",
+        "user": "71.215.30.61",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "71.215.30.61",
+        "city": "Fort Myers",
+        "region": "Florida",
+        "region_code": "FL",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "33901",
+        "latitude": 26.6231,
+        "longitude": -81.8754,
+        "timezone": "America/New_York",
+        "utc_offset": "-0400",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS209",
+        "org": "Qwest Communications Company, LLC"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 305078991,
+        "length": {
+          "new": 2190,
+          "old": 2158
+        },
+        "meta": {
+          "domain": "sv.wikipedia.org",
+          "dt": "2018-07-29T21:01:58+00:00",
+          "id": "a1d85003-9372-11e8-ba78-1418776134f3",
+          "request_id": "48def326-fdd0-4f3e-98e9-42ef64fbe27f",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://sv.wikipedia.org/wiki/Problem",
+          "partition": 0,
+          "offset": 1034952428
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 43353447,
+          "old": 43353433
+        },
+        "server_name": "sv.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://sv.wikipedia.org",
+        "timestamp": 1532898118,
+        "title": "Problem",
+        "type": "edit",
+        "user": "80.216.53.154",
+        "wiki": "svwiki"
+      },
+      "location": {
+        "ip": "80.216.53.154",
+        "city": "Vastra Frolunda",
+        "region": "Västra Götaland",
+        "region_code": "O",
+        "country": "SE",
+        "country_name": "Sweden",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "421 01",
+        "latitude": 57.6467,
+        "longitude": 11.9294,
+        "timezone": "Europe/Stockholm",
+        "utc_offset": "+0200",
+        "country_calling_code": "+46",
+        "currency": "SEK",
+        "languages": "sv-SE,se,sma,fi-SE",
+        "asn": "AS39651",
+        "org": "Com Hem AB"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938915,
+        "length": {
+          "new": 9299,
+          "old": 9117
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:59+00:00",
+          "id": "a26638b2-9372-11e8-804b-b083fecf0a88",
+          "request_id": "9e54d4fc-9770-4760-9f8e-1d0d79f75641",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Tom_Maguire",
+          "partition": 0,
+          "offset": 1034952448
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560857,
+          "old": 848768481
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898119,
+        "title": "Tom Maguire",
+        "type": "edit",
+        "user": "2001:BB6:8A21:3658:F0C4:D5DB:D2B0:1C74",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "2001:BB6:8A21:3658:F0C4:D5DB:D2B0:1C74",
+        "city": "Dublin",
+        "region": "Leinster",
+        "region_code": "L",
+        "country": "IE",
+        "country_name": "Ireland",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "D02",
+        "latitude": 53.3331,
+        "longitude": -6.2489,
+        "timezone": "Europe/Dublin",
+        "utc_offset": "+0100",
+        "country_calling_code": "+353",
+        "currency": "EUR",
+        "languages": "en-IE,ga-IE",
+        "asn": "AS5466",
+        "org": "Eircom"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "[[:Wikipedia:Sandbox]] removed from category, [[Special:WhatLinksHere/Wikipedia:Sandbox|this page is included within other pages]]",
+        "id": 1074938913,
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:57+00:00",
+          "id": "a22694e8-9372-11e8-8041-1418776149df",
+          "request_id": "W14rRQpAICgAAIezSlsAAAAJ",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Category:Wikipedia_editing_aids",
+          "partition": 0,
+          "offset": 1034952442
+        },
+        "namespace": 14,
+        "parsedcomment": "<a href=\"/wiki/Wikipedia:Sandbox\" title=\"Wikipedia:Sandbox\">Wikipedia:Sandbox</a> removed from category, <a href=\"/wiki/Special:WhatLinksHere/Wikipedia:Sandbox\" title=\"Special:WhatLinksHere/Wikipedia:Sandbox\">this page is included within other pages</a>",
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898117,
+        "title": "Category:Wikipedia editing aids",
+        "type": "categorize",
+        "user": "71.215.30.61",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "71.215.30.61",
+        "city": "Fort Myers",
+        "region": "Florida",
+        "region_code": "FL",
+        "country": "US",
+        "country_name": "United States",
+        "continent_code": "NA",
+        "in_eu": false,
+        "postal": "33901",
+        "latitude": 26.6231,
+        "longitude": -81.8754,
+        "timezone": "America/New_York",
+        "utc_offset": "-0400",
+        "country_calling_code": "+1",
+        "currency": "USD",
+        "languages": "en-US,es-US,haw,fr",
+        "asn": "AS209",
+        "org": "Qwest Communications Company, LLC"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 84479236,
+        "length": {
+          "new": 11064,
+          "old": 11040
+        },
+        "meta": {
+          "domain": "pt.wikipedia.org",
+          "dt": "2018-07-29T21:01:58+00:00",
+          "id": "a28bb848-9372-11e8-8ca4-1418776139a6",
+          "request_id": "41cb2744-bee8-41c4-a619-1b768d953d1e",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://pt.wikipedia.org/wiki/Real_Valladolid_Club_de_F%C3%BAtbol",
+          "partition": 0,
+          "offset": 1034952449
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "patrolled": false,
+        "revision": {
+          "new": 52784511,
+          "old": 52376901
+        },
+        "server_name": "pt.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://pt.wikipedia.org",
+        "timestamp": 1532898118,
+        "title": "Real Valladolid Club de Fútbol",
+        "type": "edit",
+        "user": "2804:14D:1086:810D:30DF:9727:4BEE:1A22",
+        "wiki": "ptwiki"
+      },
+      "location": {
+        "ip": "2804:14D:1086:810D:30DF:9727:4BEE:1A22",
+        "city": "Macaé",
+        "region": "Rio de Janeiro",
+        "region_code": "RJ",
+        "country": "BR",
+        "country_name": "Brazil",
+        "continent_code": "SA",
+        "in_eu": false,
+        "postal": null,
+        "latitude": -22.3823,
+        "longitude": -41.7754,
+        "timezone": "America/Sao_Paulo",
+        "utc_offset": "-0300",
+        "country_calling_code": "+55",
+        "currency": "BRL",
+        "languages": "pt-BR,es,en,fr",
+        "asn": "AS28573",
+        "org": "CLARO S.A."
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938923,
+        "length": {
+          "new": 159644,
+          "old": 160134
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:01:58+00:00",
+          "id": "a4bcc719-9372-11e8-bbce-141877614a33",
+          "request_id": "09ceeb93-709b-495b-8293-284b4d1a2c78",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Rwanda",
+          "partition": 0,
+          "offset": 1034952524
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560855,
+          "old": 852558398
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898118,
+        "title": "Rwanda",
+        "type": "edit",
+        "user": "41.186.83.138",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "41.186.83.138",
+        "city": "Kigali",
+        "region": "Kigali",
+        "region_code": "01",
+        "country": "RW",
+        "country_name": "Rwanda",
+        "continent_code": "AF",
+        "in_eu": false,
+        "postal": null,
+        "latitude": -1.9536,
+        "longitude": 30.0606,
+        "timezone": "Africa/Kigali",
+        "utc_offset": "+0200",
+        "country_calling_code": "+250",
+        "currency": "RWF",
+        "languages": "rw,en-RW,fr-RW,sw",
+        "asn": "AS36890",
+        "org": "MTNRW-ASN"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938924,
+        "length": {
+          "new": 7974,
+          "old": 7969
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:02:03+00:00",
+          "id": "a50c02d2-9372-11e8-8fd7-b083fecf0bcd",
+          "request_id": "bdebaa58-7a71-4232-9c5a-047374515059",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Shu_Pei",
+          "partition": 0,
+          "offset": 1034952533
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560863,
+          "old": 826557170
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898123,
+        "title": "Shu Pei",
+        "type": "edit",
+        "user": "213.198.254.205",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "213.198.254.205",
+        "city": "Belgrade",
+        "region": "Belgrade",
+        "region_code": "00",
+        "country": "RS",
+        "country_name": "Serbia",
+        "continent_code": "EU",
+        "in_eu": false,
+        "postal": null,
+        "latitude": 44.8186,
+        "longitude": 20.4681,
+        "timezone": "Europe/Belgrade",
+        "utc_offset": "+0200",
+        "country_calling_code": "+381",
+        "currency": "RSD",
+        "languages": "sr,hu,bs,rom",
+        "asn": "AS8771",
+        "org": "YUnet International d.o.o."
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074938925,
+        "length": {
+          "new": 2123,
+          "old": 2109
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:02:03+00:00",
+          "id": "a57e4d19-9372-11e8-8b83-b083fecf12b3",
+          "request_id": "6678bf4c-1bd4-4e3a-8f91-706c96c8b10e",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Angus_Morton",
+          "partition": 0,
+          "offset": 1034952543
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852560864,
+          "old": 852560799
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898123,
+        "title": "Angus Morton",
+        "type": "edit",
+        "user": "86.137.188.171",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "86.137.188.171",
+        "city": "Hempstead",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "CB10",
+        "latitude": 52.0167,
+        "longitude": 0.3833,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS2856",
+        "org": "British Telecommunications PLC"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 49701184,
+        "length": {
+          "new": 3123,
+          "old": 3030
+        },
+        "meta": {
+          "domain": "fa.wikipedia.org",
+          "dt": "2018-07-29T21:02:05+00:00",
+          "id": "a5e3783d-9372-11e8-9817-141877613170",
+          "request_id": "03695c44-6801-4fed-a14f-730ed0215d07",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D8%A3%D8%B3%D9%81%D9%85",
+          "partition": 0,
+          "offset": 1034952552
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "patrolled": false,
+        "revision": {
+          "new": 24138078,
+          "old": 24106919
+        },
+        "server_name": "fa.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://fa.wikipedia.org",
+        "timestamp": 1532898125,
+        "title": "متأسفم",
+        "type": "edit",
+        "user": "2.190.24.204",
+        "wiki": "fawiki"
+      },
+      "location": {
+        "ip": "2.190.24.204",
+        "city": "Tehran",
+        "region": "Tehran",
+        "region_code": null,
+        "country": "IR",
+        "country_name": "Iran",
+        "continent_code": "AS",
+        "in_eu": false,
+        "postal": null,
+        "latitude": 35.689198,
+        "longitude": 51.388974,
+        "timezone": null,
+        "utc_offset": null,
+        "country_calling_code": "+98",
+        "currency": "IRR",
+        "languages": "fa-IR,ku",
+        "asn": "AS12880",
+        "org": "Information Technology Company (ITC)"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 368096678,
+        "length": {
+          "new": 45020,
+          "old": 45019
+        },
+        "meta": {
+          "domain": "fr.wikipedia.org",
+          "dt": "2018-07-29T21:02:05+00:00",
+          "id": "a631dd0b-9372-11e8-8d36-b083fecf0ba5",
+          "request_id": "9ead922f-e992-49df-8561-ccae40e384cd",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://fr.wikipedia.org/wiki/Axel_Witsel",
+          "partition": 0,
+          "offset": 1034952561
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "patrolled": false,
+        "revision": {
+          "new": 150804329,
+          "old": 150804320
+        },
+        "server_name": "fr.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://fr.wikipedia.org",
+        "timestamp": 1532898125,
+        "title": "Axel Witsel",
+        "type": "edit",
+        "user": "92.184.101.80",
+        "wiki": "frwiki"
+      },
+      "location": {
+        "ip": "92.184.101.80",
+        "city": "Saint-Genis-Laval",
+        "region": "Auvergne-Rhone-Alpes",
+        "region_code": "ARA",
+        "country": "FR",
+        "country_name": "France",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "69230",
+        "latitude": 45.6956,
+        "longitude": 4.7934,
+        "timezone": "Europe/Paris",
+        "utc_offset": "+0200",
+        "country_calling_code": "+33",
+        "currency": "EUR",
+        "languages": "fr-FR,frp,br,co,ca,eu,oc",
+        "asn": "AS3215",
+        "org": "Orange"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 189257187,
+        "length": {
+          "new": 5353,
+          "old": 5360
+        },
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:02:07+00:00",
+          "id": "a7ac7155-9372-11e8-86e2-14187761316a",
+          "request_id": "b0622005-c188-4176-b0c4-bee0d1b2e74f",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Estepa",
+          "partition": 0,
+          "offset": 1034952606
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 109614018,
+          "old": 109548848
+        },
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898127,
+        "title": "Estepa",
+        "type": "edit",
+        "user": "2800:A4:A12:EA00:B093:65B4:C455:5D7C",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "2800:A4:A12:EA00:B093:65B4:C455:5D7C",
+        "city": "Montevideo",
+        "region": "Departamento de Montevideo",
+        "region_code": "MO",
+        "country": "UY",
+        "country_name": "Uruguay",
+        "continent_code": "SA",
+        "in_eu": false,
+        "postal": "11700",
+        "latitude": -34.8515,
+        "longitude": -56.1885,
+        "timezone": "America/Montevideo",
+        "utc_offset": "-0300",
+        "country_calling_code": "+598",
+        "currency": "UYU",
+        "languages": "es-UY",
+        "asn": "AS6057",
+        "org": "Administracion Nacional de Telecomunicaciones"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Dans la cinématographie */",
+        "id": 368096681,
+        "length": {
+          "new": 15791,
+          "old": 15787
+        },
+        "meta": {
+          "domain": "fr.wikipedia.org",
+          "dt": "2018-07-29T21:02:10+00:00",
+          "id": "a937a91e-9372-11e8-a54c-141877614a1b",
+          "request_id": "e6992e0c-47aa-4e52-af85-ddf1f780dcf4",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://fr.wikipedia.org/wiki/Xeroderma_pigmentosum",
+          "partition": 0,
+          "offset": 1034952639
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Xeroderma_pigmentosum#Dans_la_cinématographie\" title=\"Xeroderma pigmentosum\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Dans la cinématographie</span></span>",
+        "patrolled": false,
+        "revision": {
+          "new": 150804332,
+          "old": 150780745
+        },
+        "server_name": "fr.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://fr.wikipedia.org",
+        "timestamp": 1532898130,
+        "title": "Xeroderma pigmentosum",
+        "type": "edit",
+        "user": "37.170.239.250",
+        "wiki": "frwiki"
+      },
+      "location": {
+        "ip": "37.170.239.250",
+        "city": "Paris",
+        "region": "Île-de-France",
+        "region_code": "IDF",
+        "country": "FR",
+        "country_name": "France",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "75001",
+        "latitude": 48.8628,
+        "longitude": 2.3292,
+        "timezone": "Europe/Paris",
+        "utc_offset": "+0200",
+        "country_calling_code": "+33",
+        "currency": "EUR",
+        "languages": "fr-FR,frp,br,co,ca,eu,oc",
+        "asn": "AS51207",
+        "org": "Free Mobile SAS"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 354530953,
+        "length": {
+          "new": 9096,
+          "old": 9104
+        },
+        "meta": {
+          "domain": "ru.wikipedia.org",
+          "dt": "2018-07-29T21:02:10+00:00",
+          "id": "a9bb0791-9372-11e8-a25f-1866da994cb1",
+          "request_id": "08437fd6-5d98-4af8-bbad-beee4c249af3",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BB%D1%8C%D0%B4%D0%B5,_%D0%9A%D0%B5%D0%B9%D1%82%D0%B0",
+          "partition": 0,
+          "offset": 1034952657
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 94261093,
+          "old": 94261078
+        },
+        "server_name": "ru.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://ru.wikipedia.org",
+        "timestamp": 1532898130,
+        "title": "Бальде, Кейта",
+        "type": "edit",
+        "user": "89.254.253.20",
+        "wiki": "ruwiki"
+      },
+      "location": {
+        "ip": "89.254.253.20",
+        "city": "Tovopovo",
+        "region": "Kemerovskaya Oblast'",
+        "region_code": "KEM",
+        "country": "RU",
+        "country_name": "Russia",
+        "continent_code": "EU",
+        "in_eu": false,
+        "postal": null,
+        "latitude": 54.6838,
+        "longitude": 85.7036,
+        "timezone": "Asia/Novokuznetsk",
+        "utc_offset": "+0700",
+        "country_calling_code": "+7",
+        "currency": "RUB",
+        "languages": "ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,av,sah,nog",
+        "asn": "AS12389",
+        "org": "Rostelecom"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Cuadro */",
+        "id": 189257274,
+        "length": {
+          "new": 17502,
+          "old": 10338
+        },
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:04:44+00:00",
+          "id": "05243bd3-9373-11e8-94d2-1866da994d47",
+          "request_id": "36873ae0-b741-4318-93c6-dd6576f2f01d",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Anexo:Torneo_de_Nanchang_2018_(individual_femenino)",
+          "partition": 0,
+          "offset": 1034955872
+        },
+        "minor": false,
+        "namespace": 104,
+        "parsedcomment": "<a href=\"/wiki/Anexo:Torneo_de_Nanchang_2018_(individual_femenino)#Cuadro\" title=\"Anexo:Torneo de Nanchang 2018 (individual femenino)\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Cuadro</span></span>",
+        "revision": {
+          "new": 109614083,
+          "old": 109613760
+        },
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898284,
+        "title": "Anexo:Torneo de Nanchang 2018 (individual femenino)",
+        "type": "edit",
+        "user": "189.168.134.134",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 243461276,
+        "length": {
+          "new": 2630,
+          "old": 2623
+        },
+        "meta": {
+          "domain": "it.wikipedia.org",
+          "dt": "2018-07-29T21:04:45+00:00",
+          "id": "05f80420-9373-11e8-bd2c-1418776135a3",
+          "request_id": "ec967dc5-dd6e-40f7-8b16-fea046ceee86",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://it.wikipedia.org/wiki/Air_Buddies_-_Cuccioli_alla_riscossa",
+          "partition": 0,
+          "offset": 1034955894
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "patrolled": false,
+        "revision": {
+          "new": 98835372,
+          "old": 98835365
+        },
+        "server_name": "it.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://it.wikipedia.org",
+        "timestamp": 1532898285,
+        "title": "Air Buddies - Cuccioli alla riscossa",
+        "type": "edit",
+        "user": "79.41.61.120",
+        "wiki": "itwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "Corretto: \"godere di\"",
+        "id": 243461279,
+        "length": {
+          "new": 8750,
+          "old": 8701
+        },
+        "meta": {
+          "domain": "it.wikipedia.org",
+          "dt": "2018-07-29T21:04:58+00:00",
+          "id": "0d7c9f06-9373-11e8-b53f-b083fecefa18",
+          "request_id": "2c22aea8-33c6-44cb-96f0-d80343fbff69",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://it.wikipedia.org/wiki/Souad_Abderrahim",
+          "partition": 0,
+          "offset": 1034956137
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "Corretto: &quot;godere di&quot;",
+        "patrolled": false,
+        "revision": {
+          "new": 98835375,
+          "old": 98289183
+        },
+        "server_name": "it.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://it.wikipedia.org",
+        "timestamp": 1532898298,
+        "title": "Souad Abderrahim",
+        "type": "edit",
+        "user": "79.16.213.165",
+        "wiki": "itwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Issues */ Merged sections",
+        "id": 1074939568,
+        "length": {
+          "new": 10372,
+          "old": 10383
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:04:59+00:00",
+          "id": "0de6d479-9373-11e8-8607-14187761362b",
+          "request_id": "478b9db1-f1b7-4119-9aec-99f2b2a213b7",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Anglican_Diocese_of_Tasmania",
+          "partition": 0,
+          "offset": 1034956154
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Anglican_Diocese_of_Tasmania#Issues\" title=\"Anglican Diocese of Tasmania\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Issues: </span> Merged sections</span>",
+        "revision": {
+          "new": 852561208,
+          "old": 852561152
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898299,
+        "title": "Anglican Diocese of Tasmania",
+        "type": "edit",
+        "user": "49.180.138.156",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 305079008,
+        "length": {
+          "new": 523,
+          "old": 481
+        },
+        "meta": {
+          "domain": "sv.wikipedia.org",
+          "dt": "2018-07-29T21:05:03+00:00",
+          "id": "0fe70341-9373-11e8-8640-1866da9923bf",
+          "request_id": "9e2c160e-b221-46e4-b66c-a0aade48c65e",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://sv.wikipedia.org/wiki/%C3%85kerholme",
+          "partition": 0,
+          "offset": 1034956243
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 43353458,
+          "old": 43353451
+        },
+        "server_name": "sv.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://sv.wikipedia.org",
+        "timestamp": 1532898303,
+        "title": "Åkerholme",
+        "type": "edit",
+        "user": "2.64.37.60",
+        "wiki": "svwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 49701263,
+        "length": {
+          "new": 3114,
+          "old": 3123
+        },
+        "meta": {
+          "domain": "fa.wikipedia.org",
+          "dt": "2018-07-29T21:05:03+00:00",
+          "id": "0fe8fef9-9373-11e8-bbce-141877614a33",
+          "request_id": "7cc8b7dd-ca54-4ddb-9820-0d932f592e5f",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D8%A3%D8%B3%D9%81%D9%85",
+          "partition": 0,
+          "offset": 1034956244
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "patrolled": false,
+        "revision": {
+          "new": 24138117,
+          "old": 24138078
+        },
+        "server_name": "fa.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://fa.wikipedia.org",
+        "timestamp": 1532898303,
+        "title": "متأسفم",
+        "type": "edit",
+        "user": "2.190.24.204",
+        "wiki": "fawiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 55683,
+        "length": {
+          "new": 630,
+          "old": 382
+        },
+        "meta": {
+          "domain": "ga.wiktionary.org",
+          "dt": "2018-07-29T21:05:03+00:00",
+          "id": "101bfd2d-9373-11e8-8c36-141877613a1c",
+          "request_id": "5be8abfd-f208-4e66-9c47-044665a55995",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://ga.wiktionary.org/wiki/Sachsen-Anhalt",
+          "partition": 0,
+          "offset": 1034956258
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 57092,
+          "old": 56945
+        },
+        "server_name": "ga.wiktionary.org",
+        "server_script_path": "/w",
+        "server_url": "https://ga.wiktionary.org",
+        "timestamp": 1532898303,
+        "title": "Sachsen-Anhalt",
+        "type": "edit",
+        "user": "217.247.43.147",
+        "wiki": "gawiktionary"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074939580,
+        "length": {
+          "new": 2986,
+          "old": 2979
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:05:02+00:00",
+          "id": "104a394e-9373-11e8-b885-1866da99586d",
+          "request_id": "2ab82588-c9d2-4df8-9151-024303a601bb",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Geoff_Whitty",
+          "partition": 0,
+          "offset": 1034956260
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852561215,
+          "old": 852289577
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898302,
+        "title": "Geoff Whitty",
+        "type": "edit",
+        "user": "89.164.105.28",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": null,
+        "log_action": "hit",
+        "log_action_comment": "67.173.14.92 disparó [[Especial:FiltroAntiAbusos/13|filtro 13]] al realizar la acción «edit» en [[Drill (música)]]. Medidas adoptadas: Advertir ([[Especial:RegistroAbusos/9234661|detalles]])",
+        "log_id": 0,
+        "log_params": {
+          "action": "edit",
+          "actions": "warn",
+          "filter": 13,
+          "log": 9234661
+        },
+        "log_type": "abusefilter",
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:06:00+00:00",
+          "id": "31d2a2e0-9373-11e8-af4a-1866da994400",
+          "request_id": "74c38f90-50de-4509-97f5-2a11da454159",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Drill_(m%C3%BAsica)",
+          "partition": 0,
+          "offset": 1034957363
+        },
+        "namespace": 0,
+        "parsedcomment": "",
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898360,
+        "title": "Drill (música)",
+        "type": "log",
+        "user": "67.173.14.92",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 189257310,
+        "length": {
+          "new": 30065,
+          "old": 30007
+        },
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:06:01+00:00",
+          "id": "32c98b60-9373-11e8-a13e-141877613e47",
+          "request_id": "491b5db4-2540-43ee-a021-0af340137f36",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Franco_Acosta",
+          "partition": 0,
+          "offset": 1034957402
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 109614112,
+          "old": 106260427
+        },
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898361,
+        "title": "Franco Acosta",
+        "type": "edit",
+        "user": "82.199.57.238",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": null,
+        "log_action": "hit",
+        "log_action_comment": "67.173.14.92 disparó [[Especial:FiltroAntiAbusos/13|filtro 13]] al realizar la acción «edit» en [[Drill (música)]]. Medidas adoptadas: No permitir ([[Especial:RegistroAbusos/9234662|detalles]])",
+        "log_id": 0,
+        "log_params": {
+          "action": "edit",
+          "actions": "disallow",
+          "filter": 13,
+          "log": 9234662
+        },
+        "log_type": "abusefilter",
+        "meta": {
+          "domain": "es.wikipedia.org",
+          "dt": "2018-07-29T21:06:03+00:00",
+          "id": "33eba35d-9373-11e8-9817-141877613170",
+          "request_id": "09e69766-29dc-4d7e-be8c-104c382d6b2e",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://es.wikipedia.org/wiki/Drill_(m%C3%BAsica)",
+          "partition": 0,
+          "offset": 1034957436
+        },
+        "namespace": 0,
+        "parsedcomment": "",
+        "server_name": "es.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://es.wikipedia.org",
+        "timestamp": 1532898363,
+        "title": "Drill (música)",
+        "type": "log",
+        "user": "67.173.14.92",
+        "wiki": "eswiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Primo turno */",
+        "id": 243461292,
+        "length": {
+          "new": 19477,
+          "old": 19471
+        },
+        "meta": {
+          "domain": "it.wikipedia.org",
+          "dt": "2018-07-29T21:06:04+00:00",
+          "id": "34a55382-9373-11e8-a9d7-b083fecf1347",
+          "request_id": "921cd335-a9e6-43dc-9c9d-0354b75fd238",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://it.wikipedia.org/wiki/Coppa_Italia_2018-2019",
+          "partition": 0,
+          "offset": 1034957451
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Coppa_Italia_2018-2019#Primo_turno\" title=\"Coppa Italia 2018-2019\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Primo turno</span></span>",
+        "patrolled": false,
+        "revision": {
+          "new": 98835383,
+          "old": 98835359
+        },
+        "server_name": "it.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://it.wikipedia.org",
+        "timestamp": 1532898364,
+        "title": "Coppa Italia 2018-2019",
+        "type": "edit",
+        "user": "79.18.235.164",
+        "wiki": "itwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Early life */I told his religion",
+        "id": 1074939769,
+        "length": {
+          "new": 86320,
+          "old": 86273
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:04+00:00",
+          "id": "35048418-9373-11e8-8379-b083fecf12eb",
+          "request_id": "b18f6876-34b1-4fd0-9330-98c94f72a9a9",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Chance_the_Rapper",
+          "partition": 0,
+          "offset": 1034957459
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Chance_the_Rapper#Early_life\" title=\"Chance the Rapper\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Early life: </span>I told his religion</span>",
+        "revision": {
+          "new": 852561333,
+          "old": 852511947
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898364,
+        "title": "Chance the Rapper",
+        "type": "edit",
+        "user": "2601:246:802:D1D5:A48B:EFC7:275E:2DAC",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074939775,
+        "length": {
+          "new": 57380,
+          "old": 57401
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:06+00:00",
+          "id": "3673a3bd-9373-11e8-9956-1418776133f1",
+          "request_id": "ad77820e-39a0-4e86-abfb-e16a726cea9a",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/2018_Under-19_Cricket_World_Cup",
+          "partition": 0,
+          "offset": 1034957507
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852561339,
+          "old": 851730706
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898366,
+        "title": "2018 Under-19 Cricket World Cup",
+        "type": "edit",
+        "user": "86.99.222.145",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Reception */",
+        "id": 1074939776,
+        "length": {
+          "new": 25666,
+          "old": 25486
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:06+00:00",
+          "id": "3675f692-9373-11e8-8fd7-b083fecf0bcd",
+          "request_id": "ba1b2fcd-d923-484a-ad30-4978080bd7cd",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Code_Black_(TV_series)",
+          "partition": 0,
+          "offset": 1034957508
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Code_Black_(TV_series)#Reception\" title=\"Code Black (TV series)\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Reception</span></span>",
+        "revision": {
+          "new": 852561341,
+          "old": 852219109
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898366,
+        "title": "Code Black (TV series)",
+        "type": "edit",
+        "user": "82.11.129.230",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "[[:Code Black (TV series)]] added to category, [[Special:WhatLinksHere/Code Black (TV series)|this page is included within other pages]]",
+        "id": 1074939780,
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:06+00:00",
+          "id": "376d07e8-9373-11e8-b00e-1866da97fe87",
+          "request_id": "W14sPgpAMFMAAF628Q4AAABJ",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Category:Pages_with_citations_having_bare_URLs",
+          "partition": 0,
+          "offset": 1034957528
+        },
+        "namespace": 14,
+        "parsedcomment": "<a href=\"/wiki/Code_Black_(TV_series)\" title=\"Code Black (TV series)\">Code Black (TV series)</a> added to category, <a href=\"/wiki/Special:WhatLinksHere/Code_Black_(TV_series)\" title=\"Special:WhatLinksHere/Code Black (TV series)\">this page is included within other pages</a>",
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898366,
+        "title": "Category:Pages with citations having bare URLs",
+        "type": "categorize",
+        "user": "82.11.129.230",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "",
+        "id": 1074939778,
+        "length": {
+          "new": 41815,
+          "old": 41703
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:09+00:00",
+          "id": "3767d6aa-9373-11e8-a23a-141877613a22",
+          "request_id": "ca18b283-edd1-4baa-96fb-1cb4f23bc438",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Jack_Lisowski",
+          "partition": 0,
+          "offset": 1034957526
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "",
+        "revision": {
+          "new": 852561344,
+          "old": 852524659
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898369,
+        "title": "Jack Lisowski",
+        "type": "edit",
+        "user": "27.102.102.76",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "[[:Code Black (TV series)]] added to category, [[Special:WhatLinksHere/Code Black (TV series)|this page is included within other pages]]",
+        "id": 1074939779,
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:06+00:00",
+          "id": "376bcf68-9373-11e8-b00e-1866da97fe87",
+          "request_id": "W14sPgpAMFMAAF628Q4AAABJ",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Category:Pages_with_citations_lacking_titles",
+          "partition": 0,
+          "offset": 1034957527
+        },
+        "namespace": 14,
+        "parsedcomment": "<a href=\"/wiki/Code_Black_(TV_series)\" title=\"Code Black (TV series)\">Code Black (TV series)</a> added to category, <a href=\"/wiki/Special:WhatLinksHere/Code_Black_(TV_series)\" title=\"Special:WhatLinksHere/Code Black (TV series)\">this page is included within other pages</a>",
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898366,
+        "title": "Category:Pages with citations lacking titles",
+        "type": "categorize",
+        "user": "82.11.129.230",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    },
+    {
+      "data": {
+        "bot": false,
+        "comment": "/* Career highlights */",
+        "id": 1074939782,
+        "length": {
+          "new": 24057,
+          "old": 24063
+        },
+        "meta": {
+          "domain": "en.wikipedia.org",
+          "dt": "2018-07-29T21:06:09+00:00",
+          "id": "379f3404-9373-11e8-9889-b083fecf12f3",
+          "request_id": "a3d59b83-94de-41cd-b39a-084b593bda9b",
+          "schema_uri": "mediawiki/recentchange/2",
+          "topic": "eqiad.mediawiki.recentchange",
+          "uri": "https://en.wikipedia.org/wiki/Alan_Trammell",
+          "partition": 0,
+          "offset": 1034957537
+        },
+        "minor": false,
+        "namespace": 0,
+        "parsedcomment": "<a href=\"/wiki/Alan_Trammell#Career_highlights\" title=\"Alan Trammell\">→</a>‎<span dir=\"auto\"><span class=\"autocomment\">Career highlights</span></span>",
+        "revision": {
+          "new": 852561343,
+          "old": 852545945
+        },
+        "server_name": "en.wikipedia.org",
+        "server_script_path": "/w",
+        "server_url": "https://en.wikipedia.org",
+        "timestamp": 1532898369,
+        "title": "Alan Trammell",
+        "type": "edit",
+        "user": "2602:306:3B92:12E0:BCD0:65D5:C527:6273",
+        "wiki": "enwiki"
+      },
+      "location": {
+        "ip": "89.238.154.176",
+        "city": "Harrogate",
+        "region": "England",
+        "region_code": "ENG",
+        "country": "GB",
+        "country_name": "United Kingdom",
+        "continent_code": "EU",
+        "in_eu": true,
+        "postal": "HG2",
+        "latitude": 53.9833,
+        "longitude": -1.5333,
+        "timezone": "Europe/London",
+        "utc_offset": "+0100",
+        "country_calling_code": "+44",
+        "currency": "GBP",
+        "languages": "en-GB,cy-GB,gd",
+        "asn": "AS9009",
+        "org": "M247 Ltd"
+      }
+    }
+  ]
+}

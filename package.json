@@ -1,0 +1,24 @@
+{
+  "name": "wiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "export NODE_ENV=development && node index.js",
+    "start": "export NODE_ENV=production && node index.js",
+    "scrape-data": "node scrape-data.js",
+    "deploy": "we deploy -p globe"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.30.0",
+    "eventsource": "^1.0.5",
+    "express": "^4.16.3",
+    "iplocation": "^5.0.1",
+    "is-ip": "^2.0.0",
+    "lowdb": "^1.0.0",
+    "socket.io": "^2.1.1"
+  }
+}

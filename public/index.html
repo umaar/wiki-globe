@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/feed.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>Tag Stream Globe</title>
+
+<script>
+var Viewer;
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="js/combined.js"></script>
+<script type="text/javascript" src="js/demo2.js"></script>
+<script type="text/javascript" src="js/manipulator.js"></script>
+<script type="text/javascript" src="js/twitter.js"></script>
+<script type="text/javascript" src="js/combined2.js"></script>
+<script type="text/javascript" src="js/text.js"></script>
+<script type="text/javascript" src="js/wave.js"></script>
+<script type="text/javascript" src="js/coordinate.js"></script>
+
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/instructions.js"></script>
+
+
+
+<script type="text/javascript">
+function getWindowSize() {
+    var myWidth = 0, myHeight = 0;
+
+    if( typeof( window.innerWidth ) == 'number' ) {
+        //Non-IE
+        myWidth = window.innerWidth;
+        myHeight = window.innerHeight;
+    } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+        //IE 6+ in 'standards compliant mode'
+        myWidth = document.documentElement.clientWidth;
+        myHeight = document.documentElement.clientHeight;
+    } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+        //IE 4 compatible
+        myWidth = document.body.clientWidth;
+        myHeight = document.body.clientHeight;
+    }
+    return { 'w': myWidth, 'h': myHeight };
+}
+var AutoStart = (window.top == window); // if it's an not in an iframe, autostart.
+var DisableWave = false;
+</script>
+<script type="text/javascript" src="js/state.js"></script>
+
+</head>
+
+<body>
+
+<header id="masthead">
+	<div id="logo">
+		<!--<img src="img/globetweeter.png" alt="">-->
+		<h1 class="acknowledgement"><span>Wiki</span><span>Edits</span></h1>
+	</div>
+	<span id="pitch" class="cartoBook">
+		Wiki Stream
+	</span>
+</header>
+
+<div id="demo-instructions" class="hidden">
+	<div class="bubble">
+		<div id="shareLocation" class="cartoBold">
+			Find my location
+		</div>
+		<span id="location-instructions"></span>
+		<span class="dismiss blue"><img src="img/dismiss.png" alt="dismiss">hide this message</span>		
+	</div>
+</div>
+
+<ul id="countries" class="cartoBook">
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount cartoBold"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>	
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>
+	<li>
+		<div class="flag"></div>
+		<span class="countryName"></span>
+		<span class="tweetCount"></span>
+	</li>	
+</ul>
+
+<ul id="stats">
+	<li>
+		<span id="generalTweetCount" class="cartoBold">0</span>
+		Edits
+	</li>
+	<li>		
+		<span id="generalCountriesCount" class="cartoBold">0</span>
+		ACTIVE COUNTRIES
+	</li>
+	<li style="display:none;">
+		<span id="generalTimer" class="cartoBold">0</span>		
+		ELAPSED TIME
+	</li>
+	<li style="display:none;">
+		<span id="tweetsPersecond" class="cartoBold">0</span>
+		TAGS/SEC
+	</li>			
+</ul>
+
+<div id="instructions">
+	<div id="ranking-instructions" class="hidden">
+		<div class="corner">
+		</div>
+		<div class="bubble">
+			Click on a country to center it on your screen
+			<span class="dismiss blue"><img src="img/dismiss.png" alt="dismiss">hide this message</span>
+		</div>
+	</div>
+</div>
+
+<div id="connection">
+  <div class="bubble">
+    Connecting to tag stream
+  </div>
+</div>
+
+<div id="ViewContainer">
+<canvas id="3DView"></canvas>
+</div>
+<div id="TweetsProcessedStats"></div>
+<div id="TweetsPerSeconds"></div>
+<div id="TweetContent" class="hidden">
+</div>
+
+<canvas id="TweetPicture" width="64" height="64"> </canvas>
+<canvas id="TextRendering" width="512" height="32"> </canvas>
+<canvas id="HeightMap" width="128" height="64"> </canvas>
+<canvas id="HeightMap2" width="128" height="64"> </canvas>
+
+</body>
+</html>

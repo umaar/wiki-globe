@@ -1,0 +1,53 @@
+#socialContainer {
+	margin-top: 54px;
+}
+
+#socialContainer > h2 {
+	font-size: 1.1em;
+	color: white;	
+}
+
+.socialContainer {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;	
+}
+
+.socialContainer a:hover {
+	-webkit-transform: scale(1.7);
+	-webkit-transform-origin: 0;
+	z-index: 10;
+	-webkit-transition: 0.3s all ease;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 20px;
+}
+
+.socialContainer a {
+	display: block;
+	color: white;
+}
+
+.socialContainer li {
+	margin: 5px 0;
+	overflow: hidden;
+}
+
+.socialContainer img {
+	width: 40px;
+	height: 40px;
+}
+
+.socialContainer h3 {
+	margin-top: 4px;
+}
+
+.socialContainer h4 {
+
+}
+
+
+.socialContainer h4, .socialContainer h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 0.9em;
+}
