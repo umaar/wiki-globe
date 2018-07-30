@@ -1,3 +1,5 @@
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 const config = require('config');
 const express = require('express')
 const expressPort = config.get('port');
@@ -73,11 +75,16 @@ function init() {
 		console.log('webhookURL valid');
 
 		app.post(webhookURL, (req, res) => {
-			console.log('WebHook Request', req);
-			res.send('Thanks!');
+			console.log('WebHook Request');
+			res.send('Running the post-receive hook on the server ✅️');
+
+			const command = `npm run post-receive`;
+			console.log('Executing: ', command);
+			exec(command).catch(err => {
+				console.log(`Error running '${command}'.`, err);
+			})
 		});
 	}
-
 
 	onWikiData(data => {
 		io.emit('message', data);
