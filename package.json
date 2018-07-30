@@ -5,10 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-production": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
+    "start-production-process": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
+    "stop-production-process": "pm2 stop wiki-globe-production 2>/dev/null || true && pm2 delete wiki-globe-production  2>/dev/null || true",
     "start": "export NODE_ENV=development && node index.js",
-    "scrape-data": "node scrape-data.js",
-    "deploy": "we deploy -p globe"
+    "scrape-data": "node scrape-data.js"
   },
   "keywords": [],
   "author": "",
