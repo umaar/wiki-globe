@@ -74,7 +74,7 @@ function init() {
 	if (webhookURL && webhookURL.startsWith('/') && webhookURL.length > 1) {
 		console.log('webhookURL valid');
 
-		app.get(`/globe${webhookURL}`, (req, res) => {
+		app.post(`/globe${webhookURL}`, (req, res) => {
 			console.log('WebHook Request');
 			res.send('Running the post-receive hook on the server ✅️');
 
