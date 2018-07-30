@@ -49,7 +49,7 @@ function onMessage(callback) {
 			location
 		};
 
-		console.log(item);
+		// console.log(item);
 		callback(item);
 	}
 }
