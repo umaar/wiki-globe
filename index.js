@@ -59,7 +59,6 @@ function init() {
 
 	io.on('connection', function (socket) {
 		console.log('Connection established');
-		socket.emit('message', { hello: 'world' });
 	});
 
 	onWikiData(data => {
