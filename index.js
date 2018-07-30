@@ -67,6 +67,18 @@ function init() {
 		console.log('Connection established');
 	});
 
+	const webhookURL = config.get('webhookURL');
+
+	if (webhookURL && webhookURL.startsWith('/') && webhookURL.length > 1) {
+		console.log('webhookURL valid');
+
+		app.post(webhookURL, (req, res) => {
+			console.log('WebHook Request', req);
+			res.send('Thanks!');
+		});
+	}
+
+
 	onWikiData(data => {
 		io.emit('message', data);
 	});
