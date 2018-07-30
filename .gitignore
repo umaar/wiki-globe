@@ -23,3 +23,4 @@ jspm_packages
 dist/
 *.mp4
 *.mov
+config/default.json

@@ -1,6 +1,7 @@
 const config = require('config');
 const express = require('express')
 const expressPort = config.get('port');
+const IPAPIKey = config.get('IPAPIKey');
 
 const iplocation = require('iplocation')
 const EventSource = require('eventsource');
@@ -10,7 +11,7 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http, { path: '/globe/socket.io'});
 
-const ipAPIURL = 'https://ipapi.co/*/json';
+const ipAPIURL = `https://ipapi.co/*/json?key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
 function onMessage(callback) {
