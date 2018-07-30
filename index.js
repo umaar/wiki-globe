@@ -37,13 +37,18 @@ function onMessage(callback) {
 			return;
 		}
 
+		if (!!location || location.error) {
+			console.log('IP Location Error:', {location});
+			return;
+		}
+
 		// We receive around 10k edits per hour
 		const item = {
 			data,
 			location
 		};
 
-		console.log(item);
+		// console.log(item);
 		callback(item);
 	}
 }
