@@ -1,5 +1,5 @@
 const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const { spawn } = require('child_process');
 const config = require('config');
 const express = require('express')
 const expressPort = config.get('port');
@@ -78,11 +78,14 @@ function init() {
 			console.log('WebHook Request');
 			res.send('Running the post-receive hook on the server ✅️');
 
-			const command = `npm run post-receive`;
-			console.log('Executing: ', command);
-			exec(command).catch(err => {
-				console.log(`Error running '${command}'.`, err);
-			})
+			console.log('Executing the post receive script ');
+
+			const subprocess = spawn('npm', ['run', 'post-receive'], {
+				detached: true,
+				stdio: 'ignore'
+			});
+
+			subprocess.unref();
 		});
 	}
 
