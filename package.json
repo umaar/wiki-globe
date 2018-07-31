@@ -5,6 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "migrate-db-dev": "./node_modules/.bin/knex migrate:latest --env development",
+    "seed-db-dev": "./node_modules/.bin/knex seed:run --env development",
     "start-production-process": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
     "start": "export NODE_ENV=development && nodemon index.js",
     "scrape-data": "node scrape-data.js",
@@ -19,8 +21,10 @@
     "express": "^4.16.3",
     "iplocation": "^5.0.1",
     "is-ip": "^2.0.0",
+    "knex": "^0.15.2",
     "lowdb": "^1.0.0",
     "pretty-time": "^1.1.0",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "sqlite3": "^4.0.2"
   }
 }
