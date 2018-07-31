@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start-production-process": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
-    "start": "export NODE_ENV=development && node index.js",
+    "start": "export NODE_ENV=development && nodemon index.js",
     "scrape-data": "node scrape-data.js",
     "post-receive": "echo 'Deployment beginning' >> wiki-globe-deploy-log.txt && echo 'Updating wiki-globe from git' >> wiki-globe-deploy-log.txt && git fetch origin master && git reset --hard origin/master && echo 'npm installing' >> wiki-globe-deploy-log.txt && npm i && echo 'Restarting the node process and finishing up' >> wiki-globe-deploy-log.txt && pm2 restart wiki-globe-production"
   },
@@ -20,6 +20,7 @@
     "iplocation": "^5.0.1",
     "is-ip": "^2.0.0",
     "lowdb": "^1.0.0",
+    "pretty-time": "^1.1.0",
     "socket.io": "^2.1.1"
   }
 }

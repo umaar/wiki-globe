@@ -4,6 +4,7 @@ const config = require('config');
 const express = require('express')
 const expressPort = config.get('port');
 const IPAPIKey = config.get('IPAPIKey');
+const prettyTime = require('pretty-time');
 
 const iplocation = require('iplocation')
 const EventSource = require('eventsource');
@@ -72,8 +73,6 @@ function init() {
 	const webhookURL = config.get('webhookURL');
 
 	if (webhookURL && webhookURL.startsWith('/') && webhookURL.length > 1) {
-		console.log('webhookURL valid');
-
 		app.post(`/globe${webhookURL}`, (req, res) => {
 			console.log('WebHook Request');
 			res.send('Running the post-receive hook on the server ✅️');
@@ -89,7 +88,17 @@ function init() {
 		});
 	}
 
+	const startTime = process.hrtime();
+	let ongoingDataCount = 0;
+
 	onWikiData(data => {
+		ongoingDataCount++;
+		const elapsedTime = process.hrtime(startTime);
+
+		if ((elapsedTime[0] % 10) === 0) {
+			console.log(`${ongoingDataCount} wiki edits received after ${prettyTime(elapsedTime)}`);
+		}
+
 		io.emit('message', data);
 	});
 
