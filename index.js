@@ -96,7 +96,7 @@ function init() {
 	const port = config.get('port');
 
 	http.listen(port, function(){
-		console.log(`listening on *:${port}`);
+		console.log(`listening on port :${port}`);
 	});
 }
 
