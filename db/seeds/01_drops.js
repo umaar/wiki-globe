@@ -58,11 +58,18 @@ const sampleWikiEdit = {
 
 exports.seed = async function(knex) {
 	await knex('edits').del();
+
 	await knex('edits').insert([{
 		raw_data: JSON.stringify(sampleWikiEdit),
-		title: 'Hari',
-		wiki_name: 'enwiki',
-		wiki_id: 1074938833,
-		edit_time: new Date('2018-07-29T21:01:27+00:00')
+		title: sampleWikiEdit.data.title,
+		wiki_name: sampleWikiEdit.data.wiki,
+		wiki_id: sampleWikiEdit.data.id + process.hrtime()[1],
+		edit_time: new Date(sampleWikiEdit.data.meta.dt)
+	}, {
+		raw_data: JSON.stringify(sampleWikiEdit),
+		title: sampleWikiEdit.data.title,
+		wiki_name: sampleWikiEdit.data.wiki,
+		wiki_id: sampleWikiEdit.data.id + process.hrtime()[1],
+		edit_time: new Date(sampleWikiEdit.data.meta.dt)
 	}]);
 };
