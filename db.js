@@ -1,1 +1,0 @@
-const knex = require('./connection');

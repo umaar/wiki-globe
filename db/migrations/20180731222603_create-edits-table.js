@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
 		table.text('raw_data').notNullable();
 		table.string('title').notNullable();
 		table.string('wiki_name').notNullable();
-		table.integer('wiki_id').unique().notNullable();
+		table.integer('wiki_id');
 		table.timestamp('edit_time').index().notNullable();
 	});
 };

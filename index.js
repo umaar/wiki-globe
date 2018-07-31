@@ -6,6 +6,7 @@ const expressPort = config.get('port');
 const IPAPIKey = config.get('IPAPIKey');
 const prettyTime = require('pretty-time');
 
+const knex = require('./db/connection');
 const iplocation = require('iplocation')
 const EventSource = require('eventsource');
 const isIp = require('is-ip');
@@ -63,6 +64,17 @@ function onWikiData(onData) {
 	es.addEventListener('message', onMessage(onData))
 }
 
+async function writeWikiEditToDB(wikiEdit) {
+	// This returns a promise, but it's unimportant as to when it completes
+	await knex('edits').insert([{
+		raw_data: JSON.stringify(wikiEdit),
+		title: wikiEdit.data.title,
+		wiki_name: wikiEdit.data.wiki,
+		wiki_id: wikiEdit.data.id,
+		edit_time: new Date(wikiEdit.data.meta.dt)
+	}]);
+}
+
 function init() {
 	app.use('/globe', express.static('public'))
 
@@ -105,6 +117,8 @@ function init() {
 		}
 
 		io.emit('message', data);
+
+		writeWikiEditToDB(data);
 	});
 
 	const port = config.get('port');
