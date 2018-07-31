@@ -8,7 +8,7 @@
     "start-production-process": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
     "start": "export NODE_ENV=development && node index.js",
     "scrape-data": "node scrape-data.js",
-    "post-receive": "echo 'Starting the script' >> ../tmp.txt && echo 'Updating git' >> ../tmp.txt && git fetch origin master && git reset --hard origin/master && echo 'npm i' >> ../tmp.txt && npm i && echo 'Starting new process' >> ../tmp.txt && pm2 restart wiki-globe-production"
+    "post-receive": "echo 'Deployment beginning' >> wiki-globe-deploy-log.txt && echo 'Updating wiki-globe from git' >> wiki-globe-deploy-log.txt && git fetch origin master && git reset --hard origin/master && echo 'npm installing' >> wiki-globe-deploy-log.txt && npm i && echo 'Restarting the node process and finishing up' >> wiki-globe-deploy-log.txt && pm2 restart wiki-globe-production"
   },
   "keywords": [],
   "author": "",
