@@ -21,7 +21,7 @@
 
 .cartoBook {font-family:'CartoGothicStd-Book', Helvetica, arial, sans-serif;}
 .cartoBold {font-family:'CartoGothicStd-Bold', Helvetica, arial, sans-serif;}
-.acknowledgement {font-family:'Acknowledgement', georgia, times, serif;}
+.acknowledgement {font-family:'Acknowledgement', georgia, times, serif;     z-index: 1;}
 
 #countryStats, #TweetPicture, #TextRendering, #HeightMap, #HeightMap2, #debugInfo {
  	display:none; /*Temporarily hides unecessary stuff */
@@ -121,6 +121,16 @@ h1 span:nth-child(2) {
 	text-align:center;
 	color:#eee;
 	font-size:18px;
+}
+
+#pitch details {
+	background: #060606;
+	outline: 1px solid #656665;
+	box-shadow: 4px 4px 4px #464646;
+}
+
+#pitch details  p {
+	line-height: 1.6;
 }
 
 #generalCounter {

@@ -90,8 +90,13 @@ function init() {
 
 	const startTime = process.hrtime();
 	let ongoingDataCount = 0;
+	let hasLoggedOneWikiEdit = false;
 
 	onWikiData(data => {
+		if (!hasLoggedOneWikiEdit) {
+			hasLoggedOneWikiEdit = true;
+			console.log('Data preview: ', data);
+		}
 		ongoingDataCount++;
 		const elapsedTime = process.hrtime(startTime);
 
