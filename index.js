@@ -118,7 +118,7 @@ function init() {
 		ongoingDataCount++;
 		const elapsedTime = process.hrtime(startTime);
 
-		if ((elapsedTime[0] % 10) === 0) {
+		if ((elapsedTime[0] % 100) === 0) {
 			console.log(`${ongoingDataCount} wiki edits received after ${prettyTime(elapsedTime)}`);
 		}
 

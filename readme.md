@@ -51,3 +51,12 @@ touch ~/development/wiki-globe/config/default.json && jq -s add ~/development/wi
 # Warning for node.js
 
 A detached process is spawned by the server. Killing the main parent process with the process manager can also kill detached child processes in the same parent tree. Use the `--no-treekill` to avoid this issue, or, simply use `pm2 restart` instead of explicitly stopping and starting the process.
+
+# Process management
+
+```sh
+pm2 startup
+# follow instructions of the above command
+
+pm2 save
+```
