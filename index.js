@@ -5,6 +5,7 @@ const express = require('express')
 const expressPort = config.get('port');
 const IPAPIKey = config.get('IPAPIKey');
 const prettyTime = require('pretty-time');
+const LRU = require('lru-cache')
 
 const knex = require('./db/connection');
 const iplocation = require('iplocation')
@@ -18,6 +19,20 @@ const io = require('socket.io')(http, { path: '/globe/socket.io'});
 const ipAPIURL = `https://ipapi.co/*/json?key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
+const locationCache = LRU(1000);
+
+async function getLocation(ipAddress) {
+	const existingLocationForIP = locationCache.get(ipAddress);
+
+	if (existingLocationForIP) {
+		return existingLocationForIP;
+	} else {
+		const location = await iplocation(ipAddress, [ipAPIURL]);
+		locationCache.set(ipAddress, location);
+		return location;
+	}
+}
+
 function onMessage(callback) {
 	return async function(e) {
 		let data, location;
@@ -29,6 +44,10 @@ function onMessage(callback) {
 			return;
 		}
 
+		if (data.type !== 'edit') {
+			return;
+		}
+
 		const ipAddress = data.user;
 
 		if (!data || !isIp(ipAddress)) {
@@ -36,7 +55,7 @@ function onMessage(callback) {
 		}
 
 		try {
-			location = await iplocation(ipAddress, [ipAPIURL]);
+			location = await getLocation(ipAddress, data);
 		} catch (err) {
 			console.log('IP Location Error:', err);
 			return;
@@ -47,13 +66,11 @@ function onMessage(callback) {
 			return;
 		}
 
-		// We receive around 10k edits per hour
 		const item = {
 			data,
 			location
 		};
 
-		// console.log(item);
 		callback(item);
 	}
 }
