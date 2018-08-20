@@ -116,7 +116,9 @@ function init() {
 
 			const subprocess = spawn('npm', ['run', 'post-receive'], {
 				detached: true,
-				stdio: 'ignore'
+				stdio: 'ignore',
+				uid: 1001,
+				gid: 1001
 			});
 
 			subprocess.unref();
