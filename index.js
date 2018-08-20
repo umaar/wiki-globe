@@ -112,7 +112,7 @@ function init() {
 			console.log('WebHook Request');
 			res.send('Running the post-receive hook on the server ✅️');
 
-			console.log('Executing the post receive script ');
+			console.log('Executing the post receive script');
 
 			const subprocess = spawn('npm', ['run', 'post-receive'], {
 				detached: true,
