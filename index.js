@@ -16,7 +16,7 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http, { path: '/globe/socket.io'});
 
-const ipAPIURL = `https://ipapi.co/*/json?key=${IPAPIKey}`;
+const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
 const locationCache = LRU(1000);
