@@ -183,7 +183,7 @@ function init() {
 				.from('edits')
 				.offset(parseInt(offset, 10))
 				.whereBetween('edit_time', timeRange)
-				.limit(40);
+				.limit(200);
 
 			console.log(`Found ${res.length} results for ${timeKey}`);
 			console.log('\n');
