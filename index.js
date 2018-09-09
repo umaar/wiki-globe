@@ -21,6 +21,25 @@ const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange'
 
 const locationCache = LRU(1000);
 
+const timeKeys = {
+	'past-1-hour'(date) {
+		date.setHours(date.getHours() - 1);
+		return date;
+	},
+	'past-12-hours'(date) {
+		date.setHours(date.getHours() - 12);
+		return date;
+	},
+	'past-24-hours'(date) {
+		date.setDate(date.getDate() - 1);
+		return date;
+	},
+	'past-week'(date) {
+		date.setDate(date.getDate() - 7);
+		return date;
+	}
+};
+
 async function getLocation(ipAddress) {
 	const existingLocationForIP = locationCache.get(ipAddress);
 
@@ -98,13 +117,7 @@ async function writeWikiEditToDB(wikiEdit) {
 	}
 }
 
-function init() {
-	app.use('/globe', express.static('public'))
-
-	io.on('connection', function (socket) {
-		console.log('Connection established');
-	});
-
+function registerWebhook(app) {
 	const webhookURL = config.get('webhookURL');
 
 	if (webhookURL && webhookURL.startsWith('/') && webhookURL.length > 1) {
@@ -124,6 +137,64 @@ function init() {
 			subprocess.unref();
 		});
 	}
+}
+
+function init() {
+	function daMiddleWarez(req, res, next) {
+		const {path, query} = req;
+
+		if (path === '/') {
+			const selectedTime = query.time;
+			const allowedTimeRangeKeys = Object.keys(timeKeys);
+
+			if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
+				console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
+				return res.redirect('?time=past-1-hour');
+			}
+		}
+
+		next();
+	}
+
+	app.use('/globe', daMiddleWarez, express.static('public'))
+
+	io.on('connection', function (socket) {
+		console.log('Connection established');
+
+		socket.on('message', async function(msg) {
+			const last = await knex.from('edits').orderBy('id', 'desc').first();
+			const latestWikiEditTime = last.edit_time;
+
+			const allowedTimeRangeKeys = Object.keys(timeKeys);
+
+			if (!allowedTimeRangeKeys.includes(msg)) {
+				console.log(`Invalid time key: ${msg}`);
+				return;
+			}
+
+			console.log(`Request for time range: ${msg}`);
+
+			const timeKey = msg;
+
+			const startTime = timeKeys[timeKey](new Date(latestWikiEditTime));
+			const timeRange = [+startTime, +new Date(latestWikiEditTime)];
+
+			const res = await knex
+				.from('edits')
+				.whereBetween('edit_time', timeRange);
+
+			console.log(timeKey, res.length);
+			console.log('\n');
+
+			// res.forEach(item => {
+			// 	socket.emit('message', JSON.parse(item.raw_data));
+			// });
+
+			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
+		});
+	});
+
+	registerWebhook(app);
 
 	const startTime = process.hrtime();
 	let ongoingDataCount = 0;
@@ -137,19 +208,18 @@ function init() {
 		ongoingDataCount++;
 		const elapsedTime = process.hrtime(startTime);
 
-		if ((elapsedTime[0] % 100) === 0) {
+		if ((elapsedTime[0] % 200) === 0) {
 			console.log(`${ongoingDataCount} wiki edits received after ${prettyTime(elapsedTime)}`);
 		}
 
 		io.emit('message', data);
-
 		writeWikiEditToDB(data);
 	});
 
 	const port = config.get('port');
 
-	http.listen(port, function(){
-		console.log(`listening on port :${port}`);
+	http.listen(port, () => {
+		console.log(`listening on port: ${port}`);
 	});
 }
 

@@ -22,6 +22,12 @@
  *
  */
 
+function sleep(ms = 1000) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
 var countPerSecond = 0;
 var FakeTweets;
 var Socket;
@@ -56,35 +62,53 @@ function startNetwork() {
             }
         };
 
-        console.log('Socket on connection?');
         var socket = io({ path: '/globe/socket.io'});
-        socket.on('connect', () => {
-            console.log('Connected to the WebSocket Server');
+        socket.on('connect', (io) => {
+            console.log('Connected to the WebSocket Server ✅️');
             StreamConnected += 1;
             if (StreamConnected === 1) {
                 // showInstructions();
             }
             hideConnection();
             LastTweetReceived = new Date();
-            osg.log("connected to server!");
+
             //checkNetwork();
-        });
 
+            socket.on('results', async function(res) {
+                if (res && res.length) {
+                    console.log(`Got ${res.length} wiki edits to get through`);
 
-        socket.on('message', (data) => {
-            var broken = false;
-            var data;
-            if ( !document.webkitHidden ) {
-                hideConnection();
-                LastTweetReceived = new Date();
-                processTweet(data);
+                    for (let item of res) {
+                        await sleep(20);
+                        processTweet(item);
+                    }
+
+                } else {
+                    console.log('Received undefined/empty results', res);
+                }
+            });
+
+            const urlParams = new URLSearchParams(location.search);
+            const selectedTime = urlParams.get('time');
+
+            if (selectedTime) {
+                console.log(`ℹ️ ${selectedTime} selected`);
+                socket.emit('message', selectedTime);
+            } else {
+                console.log('⚠️ no default time selected. What 2 do');
             }
         });
 
-        // osg.log("run the checker every " + ConnectionTimeoutCheck + " seconds");
-        // setTimeout(checkNetwork, ConnectionTimeoutCheck*1000);
-        // checkNetwork();
 
+
+        socket.on('message', (data) => {
+            if ( !document.webkitHidden ) {
+                // hideConnection();
+                // TODO: Can we remove this line below? Might be leaking memory
+                // LastTweetReceived = new Date();
+                processTweet(data);
+            }
+        });
     } catch (er) {
         console.log('Error: ', er);
     }
