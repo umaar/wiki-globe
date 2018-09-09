@@ -92,6 +92,11 @@ function startNetwork() {
 
                     for (let item of res) {
                         await sleep(20);
+
+                        // TODO: Tidy this:
+                        const timeString = (new Date(item.data.meta.dt)).toGMTString();
+                        document.querySelector('#footer').innerHTML = timeString;
+
                         processTweet(item);
                     }
 
