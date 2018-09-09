@@ -22,12 +22,6 @@
  *
  */
 
-function sleep(ms = 1000) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms);
-    });
-}
-
 var countPerSecond = 0;
 var FakeTweets;
 var Socket;
@@ -36,6 +30,11 @@ var ConnectionTimeoutCheck = 6;
 var CheckNetworkTimeout;
 var StreamConnected = 0;
 
+function sleep(ms = 1000) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
 
 function startNetwork() {
     try {
@@ -64,6 +63,10 @@ function startNetwork() {
 
         var socket = io({ path: '/globe/socket.io'});
         socket.on('connect', (io) => {
+            const urlParams = new URLSearchParams(location.search);
+            const selectedTime = urlParams.get('time');
+            let offset = 0;
+
             console.log('Connected to the WebSocket Server ✅️');
             StreamConnected += 1;
             if (StreamConnected === 1) {
@@ -72,28 +75,36 @@ function startNetwork() {
             hideConnection();
             LastTweetReceived = new Date();
 
+            function requestTimeRangeEdits(selectedTime, offset = 0) {
+                console.log(`ℹ️ ${selectedTime} selected. Offset: ${offset}`);
+                socket.emit('message', {
+                    selectedTime,
+                    offset
+                });
+            }
+
             //checkNetwork();
 
             socket.on('results', async function(res) {
-                if (res && res.length) {
-                    console.log(`Got ${res.length} wiki edits to get through`);
+                const resLength = res.length;
+                if (res && resLength) {
+                    console.log(`Got ${resLength} wiki edits to get through`);
 
                     for (let item of res) {
                         await sleep(20);
                         processTweet(item);
                     }
 
+                    offset += resLength;
+
+                    requestTimeRangeEdits(selectedTime, offset);
                 } else {
                     console.log('Received undefined/empty results', res);
                 }
             });
 
-            const urlParams = new URLSearchParams(location.search);
-            const selectedTime = urlParams.get('time');
-
             if (selectedTime) {
-                console.log(`ℹ️ ${selectedTime} selected`);
-                socket.emit('message', selectedTime);
+                requestTimeRangeEdits(selectedTime, offset);
             } else {
                 console.log('⚠️ no default time selected. What 2 do');
             }

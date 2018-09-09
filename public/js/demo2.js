@@ -1027,7 +1027,8 @@ function createScene()
             numberOfTweets++;
             if (tweet.place !== null) {
                 var ctry = tweet.place.country;
-                if (ctry.length > 0) {
+
+                if (ctry && ctry.length > 0) {
                     var key = ctry;
                     key = key.replace(' ','_');
                     if (tweetsPerCountry[key] === undefined) {

@@ -161,34 +161,32 @@ function init() {
 	io.on('connection', function (socket) {
 		console.log('Connection established');
 
-		socket.on('message', async function(msg) {
+		socket.on('message', async function({selectedTime, offset = 0}) {
 			const last = await knex.from('edits').orderBy('id', 'desc').first();
 			const latestWikiEditTime = last.edit_time;
 
 			const allowedTimeRangeKeys = Object.keys(timeKeys);
 
-			if (!allowedTimeRangeKeys.includes(msg)) {
-				console.log(`Invalid time key: ${msg}`);
+			if (!allowedTimeRangeKeys.includes(selectedTime)) {
+				console.log(`Invalid time key: ${selectedTime}`);
 				return;
 			}
 
-			console.log(`Request for time range: ${msg}`);
+			console.log(`Request for time range: ${selectedTime}. Offset ${offset}`);
 
-			const timeKey = msg;
+			const timeKey = selectedTime;
 
 			const startTime = timeKeys[timeKey](new Date(latestWikiEditTime));
 			const timeRange = [+startTime, +new Date(latestWikiEditTime)];
 
 			const res = await knex
 				.from('edits')
-				.whereBetween('edit_time', timeRange);
+				.offset(parseInt(offset, 10))
+				.whereBetween('edit_time', timeRange)
+				.limit(40);
 
-			console.log(timeKey, res.length);
+			console.log(`Found ${res.length} results for ${timeKey}`);
 			console.log('\n');
-
-			// res.forEach(item => {
-			// 	socket.emit('message', JSON.parse(item.raw_data));
-			// });
 
 			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
 		});
