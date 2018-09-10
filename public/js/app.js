@@ -65,6 +65,7 @@ function startNetwork() {
         socket.on('connect', (io) => {
             const urlParams = new URLSearchParams(location.search);
             const selectedTime = urlParams.get('time');
+            const searchQuery = urlParams.get('query');
             let offset = 0;
 
             console.log('Connected to the WebSocket Server ✅️');
@@ -83,7 +84,28 @@ function startNetwork() {
                 });
             }
 
+            function requestSearchQueryEdits(searchQuery, offset = 0) {
+                console.log(`ℹ️ '${searchQuery}' search query. Offset: ${offset}`);
+
+                socket.emit('search-query', {
+                    searchQuery,
+                    offset
+                });
+            }
+
             //checkNetwork();
+
+            function registerRealTimeHandler() {
+                offset = 0;
+                socket.on('message', (data) => {
+                    if ( !document.webkitHidden ) {
+                        // hideConnection();
+                        // TODO: Can we remove this line below? Might be leaking memory
+                        // LastTweetReceived = new Date();
+                        processTweet(data);
+                    }
+                });
+            }
 
             socket.on('results', async function(res) {
                 const resLength = res.length;
@@ -94,37 +116,36 @@ function startNetwork() {
                         await sleep(16);
                         requestAnimationFrame(() => {
                             // TODO: Tidy this:
-                            const timeString = (new Date(item.data.meta.dt)).toGMTString();
-                            document.querySelector('#footer').innerHTML = timeString;
                             processTweet(item);
                         });
                     }
 
                     offset += resLength;
 
-                    requestTimeRangeEdits(selectedTime, offset);
+                    requestMoreWikiEdits();
                 } else {
                     console.log('Received undefined/empty results', res);
+                    registerRealTimeHandler();
                 }
             });
 
-            if (selectedTime) {
-                requestTimeRangeEdits(selectedTime, offset);
-            } else {
-                console.log('⚠️ no default time selected. What 2 do');
+            function requestMoreWikiEdits() {
+                if (selectedTime) {
+                    requestTimeRangeEdits(selectedTime, offset);
+                } else if (searchQuery) {
+                    requestSearchQueryEdits(searchQuery, offset);
+                } else {
+                    console.log('⚠️ no default time selected or search query selected');
+                    registerRealTimeHandler();
+                }
             }
+
+            requestMoreWikiEdits();
         });
 
 
 
-        socket.on('message', (data) => {
-            if ( !document.webkitHidden ) {
-                // hideConnection();
-                // TODO: Can we remove this line below? Might be leaking memory
-                // LastTweetReceived = new Date();
-                processTweet(data);
-            }
-        });
+
     } catch (er) {
         console.log('Error: ', er);
     }

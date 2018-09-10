@@ -74,6 +74,9 @@ var processTweet = function (tweet) {
 if(tweet) {
     countPerSecond++;
 
+    const timeString = (new Date(tweet.data.meta.dt)).toGMTString();
+    document.querySelector('#footer .footer-timestamp').innerHTML = timeString;
+
 	//console.log('Tag Stream found...processing: i: '+ ++iteration);
 
 	var _tweet = {};

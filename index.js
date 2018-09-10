@@ -144,12 +144,14 @@ function init() {
 		const {path, query} = req;
 
 		if (path === '/') {
-			const selectedTime = query.time;
-			const allowedTimeRangeKeys = Object.keys(timeKeys);
+			if (!query.query) {
+				const selectedTime = query.time;
+				const allowedTimeRangeKeys = Object.keys(timeKeys);
 
-			if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
-				console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
-				return res.redirect('?time=past-1-hour');
+				if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
+					console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
+					return res.redirect('?time=past-1-hour');
+				}
 			}
 		}
 
@@ -186,6 +188,28 @@ function init() {
 				.limit(200);
 
 			console.log(`Found ${res.length} results for ${timeKey}`);
+			console.log('\n');
+
+			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
+		});
+
+		socket.on('search-query', async function({searchQuery = '', offset = 0}) {
+			searchQuery = typeof(searchQuery) === 'string' ? searchQuery.toString().replace(/\W/g, '').trim().toLowerCase() : '';
+
+			if (!searchQuery || !searchQuery.length) {
+				console.log(`⚠️ Invalid search query `);
+				return;
+			}
+
+			console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
+
+			const res = await knex
+				.from('edits')
+				.offset(parseInt(offset, 10))
+				.where('title', 'like', `%${searchQuery}%`)
+				.limit(200);
+
+			console.log(`Found ${res.length} results for ${searchQuery}`);
 			console.log('\n');
 
 			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
