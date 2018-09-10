@@ -194,7 +194,7 @@ function init() {
 		});
 
 		socket.on('search-query', async function({searchQuery = '', offset = 0}) {
-			searchQuery = typeof(searchQuery) === 'string' ? searchQuery.toString().replace(/\W/g, '').trim().toLowerCase() : '';
+			searchQuery = typeof(searchQuery) === 'string' ? searchQuery.toString().trim().toLowerCase() : '';
 
 			if (!searchQuery || !searchQuery.length) {
 				console.log(`⚠️ Invalid search query `);
