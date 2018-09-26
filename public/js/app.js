@@ -66,6 +66,12 @@ function startNetwork() {
             const urlParams = new URLSearchParams(location.search);
             const selectedTime = urlParams.get('time');
             const searchQuery = urlParams.get('query');
+
+            if (searchQuery) {
+                // redirect to home until pooling is solved
+                location.href = '/globe';
+            }
+
             let offset = 0;
 
             console.log('Connected to the WebSocket Server ✅️');
