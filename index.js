@@ -21,6 +21,15 @@ const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange'
 
 const locationCache = LRU(1000);
 
+let latestWikiEditTime;
+
+async function updateLatestWikiEditTime() {
+	const last = await knex.from('edits').orderBy('id', 'desc').first();
+	latestWikiEditTime = last.edit_time;
+}
+
+setInterval(updateLatestWikiEditTime, 10000);
+
 const timeKeys = {
 	'past-1-hour'(date) {
 		date.setHours(date.getHours() - 1);
@@ -145,7 +154,8 @@ function registerWebhook(app) {
 	}
 }
 
-function init() {
+async function init() {
+	await updateLatestWikiEditTime();
 	function daMiddleWarez(req, res, next) {
 		const {path, query} = req;
 
@@ -170,9 +180,6 @@ function init() {
 		console.log('Connection established');
 
 		socket.on('message', async function({selectedTime, offset = 0}) {
-			const last = await knex.from('edits').orderBy('id', 'desc').first();
-			const latestWikiEditTime = last.edit_time;
-
 			const allowedTimeRangeKeys = Object.keys(timeKeys);
 
 			if (!allowedTimeRangeKeys.includes(selectedTime)) {
