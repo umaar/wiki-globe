@@ -246,7 +246,7 @@ function init() {
 		}
 
 		io.emit('message', data);
-		// writeWikiEditToDB(data);
+		writeWikiEditToDB(data);
 	});
 
 	const port = config.get('port');
