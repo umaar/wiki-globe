@@ -212,6 +212,9 @@ function init() {
 				return;
 			}
 
+			console.log('Wiki title searches are disabled for now, returning');
+			return;
+			/*
 			console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
 
 			const res = await knex
@@ -224,6 +227,7 @@ function init() {
 			console.log('\n');
 
 			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
+			*/
 		});
 	});
 
