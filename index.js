@@ -207,6 +207,11 @@ function init() {
 				return;
 			}
 
+			if (searchQuery === 'china') {
+				console.log(`⚠️ Query of 'china' received, discarding until pooling issue is solved `);
+				return;
+			}
+
 			console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
 
 			const res = await knex
