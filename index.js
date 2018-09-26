@@ -24,6 +24,7 @@ const locationCache = LRU(1000);
 let latestWikiEditTime;
 
 async function updateLatestWikiEditTime() {
+	console.log('Updating latest Wiki edit time...');
 	const last = await knex.from('edits').orderBy('id', 'desc').first();
 	latestWikiEditTime = last.edit_time;
 }
