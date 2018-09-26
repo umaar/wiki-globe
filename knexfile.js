@@ -25,7 +25,6 @@ module.exports = {
 		seeds: {
 			directory: __dirname + '/db/seeds'
 		},
-		useNullAsDefault: true,
-		pool: { min: 0, max: 7 }
+		useNullAsDefault: true
 	}
 };
