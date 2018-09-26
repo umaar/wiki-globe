@@ -101,20 +101,26 @@ function onWikiData(onData) {
 }
 
 async function writeWikiEditToDB(wikiEdit) {
-	// This returns a promise, but it's unimportant as to when it completes
-	try {
-		await knex('edits').insert([{
-			raw_data: JSON.stringify(wikiEdit),
-			title: wikiEdit.data.title,
-			wiki_name: wikiEdit.data.wiki,
-			wiki_id: wikiEdit.data.id,
-			edit_time: new Date(wikiEdit.data.meta.dt)
-		}]);
-	} catch (err) {
+	knex.transaction(async function(trx) {
+		try {
+			await knex('edits').transacting(trx).insert([{
+				raw_data: JSON.stringify(wikiEdit),
+				title: wikiEdit.data.title,
+				wiki_name: wikiEdit.data.wiki,
+				wiki_id: wikiEdit.data.id,
+				edit_time: new Date(wikiEdit.data.meta.dt)
+			}]);
+		} catch (err) {
+			console.log('Error writing wiki edit to database', {
+				err, wikiEdit
+			});
+		}
+	})
+	.catch(function(err) {
 		console.log('Error writing wiki edit to database', {
-			err, wikiEdit
+			err
 		});
-	}
+	});
 }
 
 function registerWebhook(app) {
