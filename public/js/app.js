@@ -119,9 +119,8 @@ function startNetwork() {
                     console.log(`Got ${resLength} wiki edits to get through`);
 
                     for (let item of res) {
-                        await sleep(16);
+                        await sleep(18);
                         requestAnimationFrame(() => {
-                            // TODO: Tidy this:
                             processTweet(item);
                         });
                     }
