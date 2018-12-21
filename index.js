@@ -19,7 +19,7 @@ const io = require('socket.io')(http, { path: '/globe/socket.io'});
 const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
-const locationCache = LRU(1000);
+const locationCache = new LRU(1000);
 
 let latestWikiEditTime;
 
