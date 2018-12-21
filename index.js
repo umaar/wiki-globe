@@ -8,7 +8,7 @@ const prettyTime = require('pretty-time');
 const LRU = require('lru-cache')
 
 const knex = require('./db/connection');
-const iplocation = require('iplocation')
+const iplocation = require('iplocation').default;
 const EventSource = require('eventsource');
 const isIp = require('is-ip');
 
