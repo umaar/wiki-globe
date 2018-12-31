@@ -1,20 +1,20 @@
-const util = require('util');
-const { spawn } = require('child_process');
+const {spawn} = require('child_process');
 const config = require('config');
-const express = require('express')
+const express = require('express');
+
 const expressPort = config.get('port');
 const IPAPIKey = config.get('IPAPIKey');
 const prettyTime = require('pretty-time');
-const LRU = require('lru-cache')
-
-const knex = require('./db/connection');
+const LRU = require('lru-cache');
 const iplocation = require('iplocation').default;
 const EventSource = require('eventsource');
 const isIp = require('is-ip');
+const io = require('socket.io')(http, {path: '/globe/socket.io'});
 
-const app = require('express')();
+const knex = require('./db/connection');
+
+const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io')(http, { path: '/globe/socket.io'});
 
 const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
@@ -29,7 +29,7 @@ async function updateLatestWikiEditTime() {
 	latestWikiEditTime = last.edit_time;
 }
 
-setInterval(updateLatestWikiEditTime, 10000);
+setInterval(updateLatestWikiEditTime, 60000);
 
 const timeKeys = {
 	'past-1-hour'(date) {
@@ -55,21 +55,20 @@ async function getLocation(ipAddress) {
 
 	if (existingLocationForIP) {
 		return existingLocationForIP;
-	} else {
-		const location = await iplocation(ipAddress, [ipAPIURL]);
-		locationCache.set(ipAddress, location);
-		return location;
 	}
+	const location = await iplocation(ipAddress, [ipAPIURL]);
+	locationCache.set(ipAddress, location);
+	return location;
 }
 
 function onMessage(callback) {
-	return async function(e) {
-		let data, location;
+	return async function (e) {
+		let data; let location;
 
 		try {
-			data = JSON.parse(e.data)
-		} catch (err) {
-			console.log('Error parsing data', err);
+			data = JSON.parse(e.data);
+		} catch (error) {
+			console.log('Error parsing data', error);
 			return;
 		}
 
@@ -85,8 +84,8 @@ function onMessage(callback) {
 
 		try {
 			location = await getLocation(ipAddress, data);
-		} catch (err) {
-			console.log('IP Location Error:', err);
+		} catch (error) {
+			console.log('IP Location Error:', error);
 			return;
 		}
 
@@ -101,17 +100,17 @@ function onMessage(callback) {
 		};
 
 		callback(item);
-	}
+	};
 }
 
 function onWikiData(onData) {
 	console.log('Connecting to ', wikimediaStreamURL);
-	var es = new EventSource(wikimediaStreamURL)
-	es.addEventListener('message', onMessage(onData))
+	const es = new EventSource(wikimediaStreamURL);
+	es.addEventListener('message', onMessage(onData));
 }
 
-async function writeWikiEditToDB(wikiEdit) {
-	knex.transaction(async function(trx) {
+function writeWikiEditToDB(wikiEdit) {
+	knex.transaction(async trx => {
 		try {
 			await knex('edits').transacting(trx).insert([{
 				raw_data: JSON.stringify(wikiEdit),
@@ -125,10 +124,9 @@ async function writeWikiEditToDB(wikiEdit) {
 				err, wikiEdit
 			});
 		}
-	})
-	.catch(function(err) {
+	}).catch(error => {
 		console.log('Error writing wiki edit to database', {
-			err
+			error
 		});
 	});
 }
@@ -175,12 +173,12 @@ async function init() {
 		next();
 	}
 
-	app.use('/globe', daMiddleWarez, express.static('public'))
+	app.use('/globe', daMiddleWarez, express.static('public'));
 
-	io.on('connection', function (socket) {
+	io.on('connection', socket => {
 		console.log('Connection established');
 
-		socket.on('message', async function({selectedTime, offset = 0}) {
+		socket.on('message', async ({selectedTime, offset = 0}) => {
 			const allowedTimeRangeKeys = Object.keys(timeKeys);
 
 			if (!allowedTimeRangeKeys.includes(selectedTime)) {
@@ -193,7 +191,7 @@ async function init() {
 			const timeKey = selectedTime;
 
 			const startTime = timeKeys[timeKey](new Date(latestWikiEditTime));
-			const timeRange = [+startTime, +new Date(latestWikiEditTime)];
+			const timeRange = [Number(startTime), Number(new Date(latestWikiEditTime))];
 
 			const res = await knex
 				.from('edits')
@@ -207,23 +205,23 @@ async function init() {
 			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
 		});
 
-		socket.on('search-query', async function({searchQuery = '', offset = 0}) {
-			searchQuery = typeof(searchQuery) === 'string' ? searchQuery.toString().trim().toLowerCase() : '';
+		socket.on('search-query', async ({searchQuery = '', offset = 0}) => {
+			searchQuery = typeof (searchQuery) === 'string' ? searchQuery.toString().trim().toLowerCase() : '';
 
 			if (!searchQuery || !searchQuery.length) {
-				console.log(`⚠️ Invalid search query `);
+				console.log('⚠️ Invalid search query ');
 				return;
 			}
 
 			if (searchQuery === 'china') {
-				console.log(`⚠️ Query of 'china' received, discarding until pooling issue is solved `);
+				console.log('⚠️ Query of \'china\' received, discarding until pooling issue is solved ');
 				return;
 			}
 
 			console.log('Wiki title searches are disabled for now, returning');
-			return;
+
 			/*
-			console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
+			Console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
 
 			const res = await knex
 				.from('edits')
@@ -261,7 +259,7 @@ async function init() {
 		writeWikiEditToDB(data);
 	});
 
-	const port = config.get('port');
+	const port = expressPort;
 
 	http.listen(port, () => {
 		console.log(`listening on port: ${port}`);
