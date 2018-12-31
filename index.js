@@ -9,12 +9,12 @@ const LRU = require('lru-cache');
 const iplocation = require('iplocation').default;
 const EventSource = require('eventsource');
 const isIp = require('is-ip');
+const http = require('http').Server(app);
 const io = require('socket.io')(http, {path: '/globe/socket.io'});
 
 const knex = require('./db/connection');
 
 const app = express();
-const http = require('http').Server(app);
 
 const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
