@@ -15,11 +15,10 @@ const io = require('socket.io')(http, {path: '/globe/socket.io'});
 
 const knex = require('./db/connection');
 
-
 const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
-const locationCache = new LRU(1000);
+const locationCache = new LRU(5000);
 
 let latestWikiEditTime;
 
@@ -63,12 +62,13 @@ async function getLocation(ipAddress) {
 
 function onMessage(callback) {
 	return async function (e) {
-		let data; let location;
+		let data;
+		let location;
 
 		try {
 			data = JSON.parse(e.data);
 		} catch (error) {
-			console.log('Error parsing data', error);
+			console.log('Error parsing Wiki data', error);
 			return;
 		}
 
@@ -110,9 +110,9 @@ function onWikiData(onData) {
 }
 
 function writeWikiEditToDB(wikiEdit) {
-	knex.transaction(async trx => {
+	knex.transaction(async transaction => {
 		try {
-			await knex('edits').transacting(trx).insert([{
+			await knex('edits').transacting(transaction).insert([{
 				raw_data: JSON.stringify(wikiEdit),
 				title: wikiEdit.data.title,
 				wiki_name: wikiEdit.data.wiki,
@@ -120,13 +120,15 @@ function writeWikiEditToDB(wikiEdit) {
 				edit_time: new Date(wikiEdit.data.meta.dt)
 			}]);
 		} catch (err) {
-			console.log('Error writing wiki edit to database', {
-				err, wikiEdit
+			console.log('Error writing Wiki edit to database', {
+				err,
+				wikiEdit
 			});
 		}
 	}).catch(error => {
-		console.log('Error writing wiki edit to database', {
-			error
+		console.log('Error writing Wiki edit to database', {
+			error,
+			wikiEdit
 		});
 	});
 }
@@ -155,7 +157,7 @@ function registerWebhook(app) {
 
 async function init() {
 	await updateLatestWikiEditTime();
-	function daMiddleWarez(req, res, next) {
+	function timeRangeMiddlewareHandler(req, res, next) {
 		const {path, query} = req;
 
 		if (path === '/') {
@@ -173,7 +175,7 @@ async function init() {
 		next();
 	}
 
-	app.use('/globe', daMiddleWarez, express.static('public'));
+	app.use('/globe', timeRangeMiddlewareHandler, express.static('public'));
 
 	io.on('connection', socket => {
 		console.log('Connection established');
