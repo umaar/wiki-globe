@@ -73,7 +73,6 @@ var processTweet = function (tweet) {
 
 if(tweet) {
     countPerSecond++;
-
     const timeString = (new Date(tweet.data.meta.dt)).toGMTString();
     document.querySelector('#footer .footer-timestamp').innerHTML = timeString;
 
@@ -99,7 +98,7 @@ if(tweet) {
     _tweet.text = tweet.data.comment;
 
 	_tweet.place = {
-		country: tweet.location.country_name
+		country: tweet.location.country
 	};
 	_tweet.user = {
 		profile_image_url: "http://a2.twimg.com/profile_images/269322702/Logo_normal.jpg",
