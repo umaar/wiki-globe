@@ -1,20 +1,26 @@
-const {spawn} = require('child_process');
-const config = require('config');
-const express = require('express');
+import {spawn} from 'child_process';
+import httpModule from 'http';
+
+import config from 'config';
+import express from 'express';
+import prettyTime from 'pretty-time';
+import LRU from 'lru-cache';
+import iplocationModule from 'iplocation';
+import EventSource from 'eventsource';
+import isIp from 'is-ip';
+import socketIO from 'socket.io';
+
+import knex from './db/connection.js';
+
+const iplocation = iplocationModule.default;
 
 const expressPort = config.get('port');
-const IPAPIKey = config.get('IPAPIKey');
-const prettyTime = require('pretty-time');
-const LRU = require('lru-cache');
-const iplocation = require('iplocation').default;
-const EventSource = require('eventsource');
-const isIp = require('is-ip');
+
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http, {path: '/globe/socket.io'});
+const http = httpModule.Server(app); // eslint-disable-line new-cap
+const io = socketIO(http, {path: '/globe/socket.io'});
 
-const knex = require('./db/connection');
-
+const IPAPIKey = config.get('IPAPIKey');
 const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
@@ -24,7 +30,11 @@ let latestWikiEditTime;
 
 async function updateLatestWikiEditTime() {
 	const last = await knex.from('edits').orderBy('id', 'desc').first();
-	latestWikiEditTime = last.edit_time;
+	if (last) {
+		latestWikiEditTime = last.editTime;
+	} else {
+		latestWikiEditTime = new Date();
+	}
 }
 
 setInterval(updateLatestWikiEditTime, 60000);
@@ -54,18 +64,19 @@ async function getLocation(ipAddress) {
 	if (existingLocationForIP) {
 		return existingLocationForIP;
 	}
+
 	const location = await iplocation(ipAddress, [ipAPIURL]);
 	locationCache.set(ipAddress, location);
 	return location;
 }
 
 function onMessage(callback) {
-	return async function (e) {
+	return async function (event) {
 		let data;
 		let location;
 
 		try {
-			data = JSON.parse(e.data);
+			data = JSON.parse(event.data);
 		} catch (error) {
 			console.log('Error parsing Wiki data', error);
 			return;
@@ -103,7 +114,7 @@ function onMessage(callback) {
 }
 
 function onWikiData(onData) {
-	console.log('Connecting to ', wikimediaStreamURL);
+	console.log('Connecting to', wikimediaStreamURL);
 	const es = new EventSource(wikimediaStreamURL);
 	es.addEventListener('message', onMessage(onData));
 }
@@ -112,15 +123,15 @@ function writeWikiEditToDB(wikiEdit) {
 	knex.transaction(async transaction => {
 		try {
 			await knex('edits').transacting(transaction).insert([{
-				raw_data: JSON.stringify(wikiEdit),
+				rawData: JSON.stringify(wikiEdit),
 				title: wikiEdit.data.title,
-				wiki_name: wikiEdit.data.wiki,
-				wiki_id: wikiEdit.data.id,
-				edit_time: new Date(wikiEdit.data.meta.dt)
+				wikiName: wikiEdit.data.wiki,
+				wikiID: wikiEdit.data.id,
+				editTime: new Date(wikiEdit.data.meta.dt)
 			}]);
-		} catch (err) {
+		} catch (error) {
 			console.log('Error writing Wiki edit to database', {
-				err,
+				err: error,
 				wikiEdit
 			});
 		}
@@ -136,9 +147,9 @@ function registerWebhook(app) {
 	const webhookURL = config.get('webhookURL');
 
 	if (webhookURL && webhookURL.startsWith('/') && webhookURL.length > 1) {
-		app.post(`/globe${webhookURL}`, (req, res) => {
+		app.post(`/globe${webhookURL}`, (request, response) => {
 			console.log('WebHook Request');
-			res.send('Running the post-receive hook on the server ✅️');
+			response.send('Running the post-receive hook on the server ✅️');
 
 			console.log('Executing the post receive script');
 
@@ -156,8 +167,8 @@ function registerWebhook(app) {
 
 async function init() {
 	await updateLatestWikiEditTime();
-	function timeRangeMiddlewareHandler(req, res, next) {
-		const {path, query} = req;
+	function timeRangeMiddlewareHandler(request, response, next) {
+		const {path, query} = request;
 
 		if (path === '/') {
 			if (!query.query) {
@@ -166,7 +177,7 @@ async function init() {
 
 				if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
 					console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
-					return res.redirect('?time=past-1-hour');
+					return response.redirect('?time=past-1-hour');
 				}
 			}
 		}
@@ -194,47 +205,16 @@ async function init() {
 			const startTime = timeKeys[timeKey](new Date(latestWikiEditTime));
 			const timeRange = [Number(startTime), Number(new Date(latestWikiEditTime))];
 
-			const res = await knex
+			const result = await knex
 				.from('edits')
 				.offset(parseInt(offset, 10))
-				.whereBetween('edit_time', timeRange)
+				.whereBetween('editTime', timeRange)
 				.limit(200);
 
-			console.log(`Found ${res.length} results for ${timeKey}`);
+			console.log(`Found ${result.length} results for ${timeKey}`);
 			console.log('\n');
 
-			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
-		});
-
-		socket.on('search-query', async ({searchQuery = '', offset = 0}) => {
-			searchQuery = typeof (searchQuery) === 'string' ? searchQuery.toString().trim().toLowerCase() : '';
-
-			if (!searchQuery || !searchQuery.length) {
-				console.log('⚠️ Invalid search query ');
-				return;
-			}
-
-			if (searchQuery === 'china') {
-				console.log('⚠️ Query of \'china\' received, discarding until pooling issue is solved ');
-				return;
-			}
-
-			console.log('Wiki title searches are disabled for now, returning');
-
-			/*
-			Console.log(`Request for wiki titles: ${searchQuery}. Offset ${offset}`);
-
-			const res = await knex
-				.from('edits')
-				.offset(parseInt(offset, 10))
-				.where('title', 'like', `%${searchQuery}%`)
-				.limit(200);
-
-			console.log(`Found ${res.length} results for ${searchQuery}`);
-			console.log('\n');
-
-			socket.emit('results', res.map(item => JSON.parse(item.raw_data)));
-			*/
+			socket.emit('results', result.map(item => JSON.parse(item.rawData)));
 		});
 	});
 
@@ -247,8 +227,9 @@ async function init() {
 	onWikiData(data => {
 		if (!hasLoggedOneWikiEdit) {
 			hasLoggedOneWikiEdit = true;
-			console.log('Data preview: ', data);
+			console.log('Data preview:', data);
 		}
+
 		ongoingDataCount++;
 		const elapsedTime = process.hrtime(startTime);
 

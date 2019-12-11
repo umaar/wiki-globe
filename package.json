@@ -1,18 +1,17 @@
 {
-  "name": "wiki",
+  "name": "wiki-globe",
   "private": true,
-  "version": "1.0.0",
-  "description": "",
+  "type": "module",
+  "description": "Visualisation for Wikipedia Edits",
   "main": "index.js",
   "scripts": {
-    "migrate-db-dev": "./node_modules/.bin/knex migrate:latest --env development",
-    "seed-db-dev": "./node_modules/.bin/knex seed:run --env development",
-    "migrate-db-prod": "./node_modules/.bin/knex migrate:latest --env production",
-    "seed-db-prod": "./node_modules/.bin/knex seed:run --env production",
+    "migrate-db-dev": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env development",
+    "migrate-db-prod": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env production",
     "start-production-process": "export NODE_ENV=production && pm2 start ./index.js --name wiki-globe-production && pm2 logs wiki-globe-production --nostream --lines 30",
-    "start": "export NODE_ENV=development && nodemon index.js",
+    "start": "export NODE_ENV=development && node index.js",
     "scrape-data": "node scrape-data.js",
-    "post-receive": "echo 'Deployment beginning' >> wiki-globe-deploy-log.txt && echo 'Updating wiki-globe from git' >> wiki-globe-deploy-log.txt && git fetch origin master && git reset --hard origin/master && echo 'npm installing' >> wiki-globe-deploy-log.txt && npm i && echo 'Migrating the database' >> wiki-globe-deploy-log.txt && npm run migrate-db-prod && echo 'Restarting the node process and finishing up' >> wiki-globe-deploy-log.txt && pm2 restart wiki-globe-production"
+    "post-receive": "echo 'Deployment beginning' >> wiki-globe-deploy-log.txt && echo 'Updating wiki-globe from git' >> wiki-globe-deploy-log.txt && git fetch origin master && git reset --hard origin/master && echo 'npm installing' >> wiki-globe-deploy-log.txt && npm i && echo 'Migrating the database' >> wiki-globe-deploy-log.txt && npm run migrate-db-prod && echo 'Restarting the node process and finishing up' >> wiki-globe-deploy-log.txt && pm2 restart wiki-globe-production",
+    "test": "xo"
   },
   "keywords": [],
   "author": "",
@@ -23,11 +22,21 @@
     "express": "^4.17.1",
     "iplocation": "^6.1.0",
     "is-ip": "^3.1.0",
-    "knex": "^0.20.1",
+    "knex": "^0.20.3",
     "lowdb": "^1.0.0",
     "lru-cache": "^5.1.1",
     "pretty-time": "^1.1.0",
     "socket.io": "^2.3.0",
-    "sqlite3": "^4.1.0"
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "@umaar/personal-eslint-config": "latest",
+    "xo": "^0.25.3"
+  },
+  "xo": {
+    "extends": "./node_modules/@umaar/personal-eslint-config/rules.json",
+    "ignores": [
+      "public/**"
+    ]
   }
 }

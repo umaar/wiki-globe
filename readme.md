@@ -1,5 +1,9 @@
 All credits go to: https://github.com/cedricpinson/globetweeter
 
+### Wiki Globe
+
+[![Actions Status](https://github.com/umaar/wiki-globe/workflows/Node%20CI/badge.svg)](https://github.com/umaar/wiki-globe/actions)
+
 ### TODO
 
 - Configure pooling correctly: https://github.com/tgriesser/knex/issues/2820#issuecomment-481710112 e.g. 

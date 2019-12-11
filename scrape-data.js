@@ -1,25 +1,26 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const iplocation = require('iplocation')
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const iplocation = require('iplocation');
 const EventSource = require('eventsource');
 const isIp = require('is-ip');
 
-const adapter = new FileSync('./data.json')
-const db = low(adapter);
+const adapter = new FileSync('./data.json');
+const database = low(adapter);
 
 const ipAPIURL = 'https://ipapi.co/json';
 
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
-db.defaults({entries: []}).write()
+database.defaults({entries: []}).write();
 
-async function onMessage(e) {
-	let data, location;
+async function onMessage(event) {
+	let data;
+	let location;
 
 	try {
-		data = JSON.parse(e.data)
-	} catch (err) {
-		console.log('Error parsing data', err);
+		data = JSON.parse(event.data);
+	} catch (error) {
+		console.log('Error parsing data', error);
 		return;
 	}
 
@@ -31,8 +32,8 @@ async function onMessage(e) {
 
 	try {
 		location = await iplocation(ipAddress, [ipAPIURL]);
-	} catch (err) {
-		console.log('IP Location Error:', err);
+	} catch (error) {
+		console.log('IP Location Error:', error);
 		return;
 	}
 
@@ -44,14 +45,14 @@ async function onMessage(e) {
 	};
 
 	console.log(item);
-	db.get('entries').push(item).write();
+	database.get('entries').push(item).write();
 }
 
 function init() {
-	console.log('Connecting to ', wikimediaStreamURL);
+	console.log('Connecting to', wikimediaStreamURL);
 
-	var es = new EventSource(wikimediaStreamURL)
-	es.addEventListener('message', onMessage)
+	const es = new EventSource(wikimediaStreamURL);
+	es.addEventListener('message', onMessage);
 }
 
 init();

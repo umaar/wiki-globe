@@ -1,3 +1,5 @@
-const config = require('config');
-const knexConfig = require('../knexfile.js')[config.get('environment')];
-module.exports = require('knex')(knexConfig);
+import config from 'config';
+import knex from 'knex';
+import knexConfig from '../knexfile.cjs';
+
+export default knex(knexConfig[config.get('environment')]);
