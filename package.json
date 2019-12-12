@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "iplocation": "^6.1.0",
     "is-ip": "^3.1.0",
-    "knex": "^0.20.3",
+    "knex": "^0.20.4",
     "lowdb": "^1.0.0",
     "lru-cache": "^5.1.1",
     "pretty-time": "^1.1.0",
