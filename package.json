@@ -7,8 +7,9 @@
   "scripts": {
     "migrate-db-dev": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env development",
     "migrate-db-prod": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env production",
-    "start-production-process": "export NODE_ENV=production && pm2 start --name wiki-globe-production npm -- run start -- && pm2 logs wiki-globe-production --nostream --lines 30",
+    "start-production-process": "export NODE_ENV=production && pm2 start --name wiki-globe-production npm -- run start-prod -- && pm2 logs wiki-globe-production --nostream --lines 30",
     "start": "node index.js",
+    "start-prod": "NODE_ENV=production node index.js",
     "scrape-data": "node scrape-data.js",
     "post-receive": "git fetch origin master && git reset --hard origin/master && npm i && npm run migrate-db-prod && pm2 restart wiki-globe-production",
     "test": "xo"
