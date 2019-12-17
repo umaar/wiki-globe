@@ -10,7 +10,7 @@
     "start-production-process": "export NODE_ENV=production && pm2 start --name wiki-globe-production npm -- run start -- && pm2 logs wiki-globe-production --nostream --lines 30",
     "start": "node index.js",
     "scrape-data": "node scrape-data.js",
-    "post-receive": "echo 'Deployment beginning' >> wiki-globe-deploy-log.txt && echo 'Updating wiki-globe from git' >> wiki-globe-deploy-log.txt && git fetch origin master && git reset --hard origin/master && echo 'npm installing' >> wiki-globe-deploy-log.txt && npm i && echo 'Migrating the database' >> wiki-globe-deploy-log.txt && npm run migrate-db-prod && echo 'Restarting the node process and finishing up' >> wiki-globe-deploy-log.txt && pm2 restart wiki-globe-production",
+    "post-receive": "git fetch origin master && git reset --hard origin/master && npm i && npm run migrate-db-prod && pm2 restart wiki-globe-production",
     "test": "xo"
   },
   "keywords": [],

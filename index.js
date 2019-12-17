@@ -56,6 +56,7 @@ async function purgeOldItems() {
 
 	const itemIDs = items.map(item => item.id);
 	const deletedItemCount = await knex.from('edits').whereIn('id', itemIDs).del();
+	console.log(`Deleted ${deletedItemCount} items`);
 
 	stats.itemCountInDBAtStartup -= deletedItemCount;
 }
