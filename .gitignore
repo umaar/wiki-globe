@@ -24,4 +24,5 @@ dist/
 *.mp4
 *.mov
 config/default.json
+config/production.json
 *.sqlite
