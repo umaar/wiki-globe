@@ -26,18 +26,42 @@ const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange'
 
 const locationCache = new LRU(5000);
 
-let latestWikiEditTime;
+const maxDBItems = config.get('maxDBItems');
+
+const stats = {
+	latestWikiEditTime: undefined,
+	itemCountInDBAtStartup: 0,
+	ongoingDataCount: 0
+};
 
 async function updateLatestWikiEditTime() {
 	const last = await knex.from('edits').orderBy('id', 'desc').first();
 	if (last) {
-		latestWikiEditTime = last.editTime;
+		stats.latestWikiEditTime = last.editTime;
 	} else {
-		latestWikiEditTime = new Date();
+		stats.latestWikiEditTime = new Date();
 	}
 }
 
+async function purgeOldItems() {
+	const totalItemCount = stats.itemCountInDBAtStartup + stats.ongoingDataCount;
+
+	if (totalItemCount < maxDBItems) {
+		return;
+	}
+
+	const numberOfItemsToDelete = totalItemCount - maxDBItems;
+
+	const items = await knex.from('edits').limit(numberOfItemsToDelete);
+
+	const itemIDs = items.map(item => item.id);
+	const deletedItemCount = await knex.from('edits').whereIn('id', itemIDs).del();
+
+	stats.itemCountInDBAtStartup -= deletedItemCount;
+}
+
 setInterval(updateLatestWikiEditTime, 60000);
+setInterval(purgeOldItems, 60000);
 
 const timeKeys = {
 	'past-1-hour'(date) {
@@ -162,11 +186,21 @@ function registerWebhook(app) {
 
 			subprocess.unref();
 		});
+	} else {
+		throw new Error('Webhook was not registered correctly. Check the webhookURL');
 	}
 }
 
-async function init() {
+async function updateStats() {
 	await updateLatestWikiEditTime();
+	const countResult = await knex.from('edits').count();
+	stats.itemCountInDBAtStartup = countResult[0]['count(*)'];
+}
+
+async function init() {
+	await updateStats();
+	await purgeOldItems();
+
 	function timeRangeMiddlewareHandler(request, response, next) {
 		const {path, query} = request;
 
@@ -202,8 +236,9 @@ async function init() {
 
 			const timeKey = selectedTime;
 
-			const startTime = timeKeys[timeKey](new Date(latestWikiEditTime));
-			const timeRange = [Number(startTime), Number(new Date(latestWikiEditTime))];
+			const latestEditTime = stats.latestWikiEditTime;
+			const startTime = timeKeys[timeKey](new Date(latestEditTime));
+			const timeRange = [Number(startTime), Number(new Date(latestEditTime))];
 
 			const result = await knex
 				.from('edits')
@@ -221,7 +256,6 @@ async function init() {
 	registerWebhook(app);
 
 	const startTime = process.hrtime();
-	let ongoingDataCount = 0;
 	let hasLoggedOneWikiEdit = false;
 
 	onWikiData(data => {
@@ -230,11 +264,11 @@ async function init() {
 			console.log('Data preview:', data);
 		}
 
-		ongoingDataCount++;
+		stats.ongoingDataCount++;
 		const elapsedTime = process.hrtime(startTime);
 
 		if ((elapsedTime[0] % 200) === 0) {
-			console.log(`${ongoingDataCount} wiki edits received after ${prettyTime(elapsedTime)}`);
+			console.log(`${stats.ongoingDataCount} wiki edits received after ${prettyTime(elapsedTime)}`);
 		}
 
 		io.emit('message', data);

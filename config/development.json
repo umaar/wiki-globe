@@ -1,4 +1,5 @@
 {
 	"environment": "development",
-	"port": "3003"
+	"port": "3003",
+	"maxDBItems": 60
 }

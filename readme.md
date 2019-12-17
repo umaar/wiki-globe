@@ -70,6 +70,12 @@ npm run start-production-process
 touch ~/development/wiki-globe/config/default.json && jq -s add ~/development/wiki-globe/config/default.json ~/.wiki-globe.json > ~/development/wiki-globe/__tmp__config.json && cp ~/development/wiki-globe/__tmp__config.json ~/development/wiki-globe/config/default.json && rm ~/development/wiki-globe/__tmp__config.json
 ```
 
+# Copy private vars on server
+
+```sh
+cp ~/.wiki-globe-production.json ~/apps/wiki-globe/config/production.json
+```
+
 # Warning for node.js
 
 A detached process is spawned by the server. Killing the main parent process with the process manager can also kill detached child processes in the same parent tree. Use the `--no-treekill` to avoid this issue, or, simply use `pm2 restart` instead of explicitly stopping and starting the process.
