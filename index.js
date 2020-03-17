@@ -198,27 +198,27 @@ async function updateStats() {
 	stats.itemCountInDBAtStartup = countResult[0]['count(*)'];
 }
 
+function timeRangeMiddlewareHandler(request, response, next) {
+	const {path, query} = request;
+
+	if (path === '/') {
+		if (!query.query) {
+			const selectedTime = query.time;
+			const allowedTimeRangeKeys = Object.keys(timeKeys);
+
+			if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
+				console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
+				return response.redirect('?time=past-1-hour');
+			}
+		}
+	}
+
+	next();
+}
+
 async function init() {
 	await updateStats();
 	await purgeOldItems();
-
-	function timeRangeMiddlewareHandler(request, response, next) {
-		const {path, query} = request;
-
-		if (path === '/') {
-			if (!query.query) {
-				const selectedTime = query.time;
-				const allowedTimeRangeKeys = Object.keys(timeKeys);
-
-				if (!selectedTime || !allowedTimeRangeKeys.includes(selectedTime)) {
-					console.log(`⚠️ ${selectedTime} is not a valid time range key. Redirecting... `);
-					return response.redirect('?time=past-1-hour');
-				}
-			}
-		}
-
-		next();
-	}
 
 	app.use('/globe', timeRangeMiddlewareHandler, express.static('public'));
 
