@@ -7,7 +7,7 @@
   "scripts": {
     "migrate-db-dev": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env development",
     "migrate-db-prod": "./node_modules/.bin/knex --knexfile knexfile.cjs migrate:latest --env production",
-    "start-production-process": "export NODE_ENV=production && pm2 start --name wiki-globe-production npm -- run start-prod -- && pm2 logs wiki-globe-production --nostream --lines 30",
+    "start-production-process": "export NODE_ENV=production && pm2 start --name wiki-globe-production --time npm -- run start-prod -- && pm2 logs wiki-globe-production --nostream --lines 30",
     "start": "node index.js",
     "start-prod": "NODE_ENV=production node index.js",
     "scrape-data": "node scrape-data.js",
@@ -18,12 +18,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.2.5",
+    "config": "^3.3.0",
     "eventsource": "^1.0.7",
     "express": "^4.17.1",
     "iplocation": "^6.1.0",
     "is-ip": "^3.1.0",
-    "knex": "^0.20.8",
+    "knex": "^0.20.11",
     "lowdb": "^1.0.0",
     "lru-cache": "^5.1.1",
     "pretty-time": "^1.1.0",
@@ -31,8 +31,8 @@
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
-    "@umaar/personal-eslint-config": "latest",
-    "xo": "^0.25.3"
+    "@umaar/personal-eslint-config": "^1.0.2",
+    "xo": "^0.28.0"
   },
   "xo": {
     "extends": "./node_modules/@umaar/personal-eslint-config/rules.json",
