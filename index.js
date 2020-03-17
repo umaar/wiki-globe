@@ -61,8 +61,8 @@ async function purgeOldItems() {
 	stats.itemCountInDBAtStartup -= deletedItemCount;
 }
 
-setInterval(updateLatestWikiEditTime, 60000);
-setInterval(purgeOldItems, 60000);
+setInterval(updateLatestWikiEditTime, 240000);
+setInterval(purgeOldItems, 240000);
 
 const timeKeys = {
 	'past-1-hour'(date) {
