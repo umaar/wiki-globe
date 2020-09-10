@@ -36,6 +36,8 @@ async function getIPLocation(ipAddress) {
 	const {body} = await got(ipAPIURL, {
 		responseType: 'json'
 	});
+	console.log('got this body from ipstack: ', body);
+	
 	return body;
 }
 
@@ -92,6 +94,8 @@ async function getLocation(ipAddress) {
 	const existingLocationForIP = locationCache.get(ipAddress);
 
 	if (existingLocationForIP) {
+		console.log('existing data found');
+		
 		return existingLocationForIP;
 	}
 
@@ -101,7 +105,7 @@ async function getLocation(ipAddress) {
 }
 
 function onMessage(callback) {
-	return async function (event) {
+	return async function (event) {		
 		let data;
 		let location;
 
@@ -121,8 +125,11 @@ function onMessage(callback) {
 		if (!data || !isIp(ipAddress)) {
 			return;
 		}
+		console.log('received a message from wiki stream');
 
 		try {
+			console.log('getting ip location');
+			
 			location = await getLocation(ipAddress, data);
 		} catch (error) {
 			console.log('IP Location Error:', error);
@@ -138,6 +145,9 @@ function onMessage(callback) {
 			data,
 			location
 		};
+
+		console.log('the final item is', item);
+		
 
 		callback(item);
 	};
@@ -265,6 +275,8 @@ async function init() {
 	let hasLoggedOneWikiEdit = false;
 
 	onWikiData(data => {
+		console.log('onWikiData', data);
+		
 		if (!hasLoggedOneWikiEdit) {
 			hasLoggedOneWikiEdit = true;
 			console.log('Data preview:', data);
