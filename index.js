@@ -33,12 +33,10 @@ const stats = {
 
 async function getIPLocation(ipAddress) {
 	const ipAPIURL = `https://api.ipstack.com/${ipAddress}?access_key=${IPAPIKey}`;
-	console.log('URL is', ipAPIURL);
 	
 	const response = await got(ipAPIURL, {
 		responseType: 'json'
 	});
-	console.log('got this body from ipstack: ', response);
 	
 	return response.body;
 }
@@ -126,11 +124,8 @@ function onMessage(callback) {
 		if (!data || !isIp(ipAddress)) {
 			return;
 		}
-		console.log('received a message from wiki stream');
 
 		try {
-			console.log('getting ip location');
-			
 			location = await getLocation(ipAddress, data);
 		} catch (error) {
 			console.log('IP Location Error:', error);
@@ -146,9 +141,6 @@ function onMessage(callback) {
 			data,
 			location
 		};
-
-		console.log('the final item is', item);
-		
 
 		callback(item);
 	};
@@ -276,11 +268,8 @@ async function init() {
 	let hasLoggedOneWikiEdit = false;
 
 	onWikiData(data => {
-		console.log('onWikiData', data);
-		
 		if (!hasLoggedOneWikiEdit) {
 			hasLoggedOneWikiEdit = true;
-			console.log('Data preview:', data);
 		}
 
 		stats.ongoingDataCount++;
