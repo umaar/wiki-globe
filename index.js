@@ -33,11 +33,11 @@ const stats = {
 
 async function getIPLocation(ipAddress) {
 	const ipAPIURL = `https://api.ipstack.com/${ipAddress}?access_key=${IPAPIKey}`;
-	
+
 	const response = await got(ipAPIURL, {
 		responseType: 'json'
 	});
-	
+
 	return response.body;
 }
 
@@ -94,7 +94,7 @@ async function getLocation(ipAddress) {
 	const existingLocationForIP = locationCache.get(ipAddress);
 
 	if (existingLocationForIP) {
-		console.log('existing data found for ', ipAddress);
+		console.log('existing data found for', ipAddress);
 		return existingLocationForIP;
 	}
 
@@ -104,7 +104,7 @@ async function getLocation(ipAddress) {
 }
 
 function onMessage(callback) {
-	return async function (event) {		
+	return async function (event) {
 		let data;
 		let location;
 
