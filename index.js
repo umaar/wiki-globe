@@ -2,17 +2,15 @@ import {spawn} from 'child_process';
 import httpModule from 'http';
 
 import config from 'config';
+import got from 'got';
 import express from 'express';
 import prettyTime from 'pretty-time';
 import LRU from 'lru-cache';
-import iplocationModule from 'iplocation';
 import EventSource from 'eventsource';
 import isIp from 'is-ip';
 import socketIO from 'socket.io';
 
 import knex from './db/connection.js';
-
-const iplocation = iplocationModule.default;
 
 const expressPort = config.get('port');
 
@@ -21,7 +19,6 @@ const http = httpModule.Server(app); // eslint-disable-line new-cap
 const io = socketIO(http, {path: '/globe/socket.io'});
 
 const IPAPIKey = config.get('IPAPIKey');
-const ipAPIURL = `https://api.ipstack.com/*?access_key=${IPAPIKey}`;
 const wikimediaStreamURL = 'https://stream.wikimedia.org/v2/stream/recentchange';
 
 const locationCache = new LRU(5000);
@@ -33,6 +30,14 @@ const stats = {
 	itemCountInDBAtStartup: 0,
 	ongoingDataCount: 0
 };
+
+async function getIPLocation(ipAddress) {
+	const ipAPIURL = `https://api.ipstack.com/${ipAddress}?access_key=${IPAPIKey}`;
+	const {body} = await got(ipAPIURL, {
+		responseType: 'json'
+	});
+	return body;
+}
 
 async function updateLatestWikiEditTime() {
 	const last = await knex.from('edits').orderBy('id', 'desc').first();
@@ -90,7 +95,7 @@ async function getLocation(ipAddress) {
 		return existingLocationForIP;
 	}
 
-	const location = await iplocation(ipAddress, [ipAPIURL]);
+	const location = await getIPLocation(ipAddress);
 	locationCache.set(ipAddress, location);
 	return location;
 }
@@ -243,7 +248,7 @@ async function init() {
 
 			const result = await knex
 				.from('edits')
-				.offset(parseInt(offset, 10))
+				.offset(Number.parseInt(offset, 10))
 				.whereBetween('editTime', timeRange)
 				.limit(200);
 

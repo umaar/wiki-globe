@@ -18,21 +18,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.0",
+    "config": "^3.3.1",
     "eventsource": "^1.0.7",
     "express": "^4.17.1",
-    "iplocation": "^6.1.0",
+    "got": "^11.6.2",
     "is-ip": "^3.1.0",
-    "knex": "^0.20.11",
+    "knex": "^0.21.5",
     "lowdb": "^1.0.0",
-    "lru-cache": "^5.1.1",
+    "lru-cache": "^6.0.0",
     "pretty-time": "^1.1.0",
     "socket.io": "^2.3.0",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "@umaar/personal-eslint-config": "^1.0.2",
-    "xo": "^0.28.0"
+    "@umaar/personal-eslint-config": "^1.0.3",
+    "xo": "^0.33.1"
   },
   "xo": {
     "extends": "./node_modules/@umaar/personal-eslint-config/rules.json",
