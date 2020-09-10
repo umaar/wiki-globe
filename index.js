@@ -33,12 +33,14 @@ const stats = {
 
 async function getIPLocation(ipAddress) {
 	const ipAPIURL = `https://api.ipstack.com/${ipAddress}?access_key=${IPAPIKey}`;
-	const {body} = await got(ipAPIURL, {
+	console.log('URL is', ipAPIURL);
+	
+	const response = await got(ipAPIURL, {
 		responseType: 'json'
 	});
-	console.log('got this body from ipstack: ', body);
+	console.log('got this body from ipstack: ', response);
 	
-	return body;
+	return response.body;
 }
 
 async function updateLatestWikiEditTime() {
@@ -94,8 +96,7 @@ async function getLocation(ipAddress) {
 	const existingLocationForIP = locationCache.get(ipAddress);
 
 	if (existingLocationForIP) {
-		console.log('existing data found');
-		
+		console.log('existing data found for ', ipAddress);
 		return existingLocationForIP;
 	}
 
