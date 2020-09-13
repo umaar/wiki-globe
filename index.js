@@ -94,7 +94,6 @@ async function getLocation(ipAddress) {
 	const existingLocationForIP = locationCache.get(ipAddress);
 
 	if (existingLocationForIP) {
-		console.log('existing data found for', ipAddress);
 		return existingLocationForIP;
 	}
 
